@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  margin: 0;
+  background-color: #FAFAFA;
+  max-width: 1500px;
+}
+
+.about {
+  display: inline-flex;
+  max-width: 1500px;
+}
+.about__photo {
+  width: auto;
+  height: 600px;
+}
+.about__img {
+  width: 100%;
+}
+.about__info {
+  padding: 16px;
+  color: #E0E0E0;
+  max-width: 300px;
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 1500px;
+  height: auto;
+  margin: 10px 0;
+  background-color: #FAFAFA;
+  border-top: 2px solid #616161;
+}
+
+.logo {
+  max-width: 200px;
+  height: auto;
+  margin-top: 10px;
+}
+.logo__img {
+  width: 100%;
+  border-radius: 50px;
+}/*# sourceMappingURL=style.css.map */

@@ -5,34 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Space</title>
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <div id="cookies" class="cookies">
-        Ta strona używa cookies.
-        <span class="close" id="close">x</span>
-    </div>
-    <div id="page">
-        <div id="logo">
-            <img src="images/musicSpaceLogo.gif" alt="LOGO">
+<body class="page">
+    <header class="banner page__header">
+        <!-- <img src="images/guitar1.jpg" alt="Zdjecie gitary" class="banner__img"> -->
+        <h1 class="banner__title banner__title--large">Music Space</h1>
+        <h2 class="banner__title banner__title--medium">Zajrzyj do świata muzyki</h2>
+        <button class="button banner__btn button--large"> Wejdź</button>
+    </header>
+    <nav class="menu page__nav">
+        <div class="logo menu__logo">
+            <!-- <img src="images/logo.png" alt="Logo Music Space" class="logo__img"> -->
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Sprzedaż</a></li>
-                <li><a href="#">Naprawy</a></li>
-                <li><a href="#">O nas</a></li>
-                <li><a href="#">Kontakt</a></li>
-            </ul>
-        </nav>
-        <div id="photo">
-            <img src="images/guitar1.jpg" alt="Guitar1">  
-            <img src="images/guitar2.jpg" alt="guitar2">  
-            <img src="images/guitar3.jpg" alt="Guitar3">  
-        </div>
-        <p>Specjalizujemy się w sprzedaży, strojeniu oraz naprawach klasycznych gitar akustycznych. Zapoznaj się z naszą ofertą.</p>
+        <ul class="menu__list">
+            <li class="menu__item  menu__item--active"><a href="#about" class="menu__link">O nas</a></li>
+            <li class="menu__item"><a href="#shop" class="menu__link">Sprzedaż</a></li>
+            <li class="menu__item"><a href="#contact" class="menu__link">Kontakt</a></li>
+        </ul>
+    </nav>
+    <div class="search page__search">
+        <input type="text" class="search__input">
+        <button class="button search__btn" type="submit">Szukaj</button>
     </div>
-    <footer>
-        <p>Copyright by AnmaKulaKu</p>
+    <section class="about page__about">
+            <div class="about__photo">
+                <img src="images/guitar2.jpg" alt="Zdjęcie gitary" class="about__img">
+            </div>
+            <div class="about__info">
+                <h1 class="about__title">Kim jesteśmy?</h1>
+                <p class="about__text"> Jesteśmy pasjonatami gitary akustycznej i specjalizujemy się w sprzedaży wysokiej jakości instrumentów dla miłośników muzyki. Nasza firma ma długoletnie doświadczenie w branży muzycznej i zdobyła uznanie klientów za profesjonalizm i dbałość o jakość. Oferujemy szeroki wybór gitar akustycznych, które są starannie wyselekcjonowane pod kątem brzmienia, wytrzymałości i wzornictwa. W naszym asortymencie znajdziesz gitary akustyczne renomowanych marek, które cieszą się uznaniem zarówno wśród początkujących, jak i doświadczonych gitarzystów. . Niezależnie od tego, czy jesteś początkującym gitarzystą szukającym swojej pierwszej gitary akustycznej, czy doświadczonym muzykiem poszukującym nowego brzmienia, mamy instrument odpowiedni dla Ciebie. </p>
+                <h2 class="about__subtitle">Co jeszcze?</h2>
+                <p class="about__text"> Dążymy do tego, aby zapewnić naszym klientom doskonałe doświadczenie zakupowe, dlatego oferujemy fachowe doradztwo i wsparcie w wyborze odpowiedniego instrumentu. Dodatkowo, oferujemy także akcesoria gitarowe, takie jak struny, paski, futerały i wiele innych, aby ułatwić Ci pełne wykorzystanie potencjału Twojej gitary akustycznej. Gdy wybierasz naszą firmę, możesz mieć pewność, że otrzymasz nie tylko doskonały instrument, ale również wsparcie i zaangażowanie w Twoją pasję do muzyki.</p>
+                <button class="button about__btn button--italic">Czytaj dalej</button>
+            </div>
+    </section>
+    <footer class="footer page__footer">
+        <div class="logo footer__logo">
+            <img src="images/logo.png" alt="Logo Music Space" class="logo__img">
+        </div>
+        <p class="footer__copyright-info">Copyright by Anmakulaku</p>
     </footer>
     <script src="index.js"></script>
 </body>
