@@ -5,7 +5,7 @@
 }
 
 .page {
-  margin-top: 20px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -149,46 +149,87 @@
      object-fit: cover;
   border-radius: 20px;
 }
-.about::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 4px;
-  width: 40%;
-  height: auto;
-  border-radius: 20px;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgb(0, 0, 1));
-}
 .about__info {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: 4px;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
   width: 40%;
+  padding: 30px 40px 20px 0;
+  color: #E0E0E0;
+  font-size: 16px;
+  border-radius: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease;
+  background-color: transparent;
+}
+.about__title {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 20px 0 30px 0;
+}
+.about__text {
+  padding: 10px;
+}
+.about__text--wrap {
+  display: block;
+}
+.about__text--long {
+  display: none;
+}
+.about__collapsed--wrap {
+  display: block;
+}
+.about__collapsed--long {
+  display: block;
+}
+.about__info--expanded {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 4px;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
   padding: 20px;
   color: #E0E0E0;
   font-size: 16px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
-  flex-direction: column;
-  text-align: justify;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: revealText 0.5s 0.3s forwards;
 }
-.about__text--wrap {
-  padding: 20px 0;
+.about--transition {
+  transition: background-color 0.3s ease;
+  border-radius: 20px;
 }
 .about__btn {
   position: absolute;
-  bottom: 100px;
-  right: 100px;
+  bottom: 50px;
+  right: 50px;
   max-width: 200px;
-  width: 100px;
+  width: 120px;
   height: 40px;
+  background-color: #FAFAFA;
+  border-radius: 5px;
+  color: #424242;
+  font-weight: 600;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  cursor: pointer;
 }
 .about__btn--italic {
-  font-size: 20px;
-  font-weight: 500;
   font-style: italic;
+}
+.about__btn:hover {
+  background-color: #e1e1e1;
 }
 
 .footer {

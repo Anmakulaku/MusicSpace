@@ -11,7 +11,7 @@ $border-radius: 20px;
     box-sizing: border-box;
 }
 .page{
-    margin-top: 20px;
+    margin: 20px ;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -154,49 +154,88 @@ $border-radius: 20px;
         object-fit: cover;
         border-radius: $border-radius;
     }
-    &::before{
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 4px;
-        width: 40%;
-        height: auto;
-        border-radius: $border-radius;
-        background-image:linear-gradient(to bottom,rgba(0,0,0,0.5), rgba(0,0,00.5));
-    }
     &__info{
         position: absolute;
         top: 0;
         right: 0;
-        bottom: 0;
+        bottom: 4px;
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
         width: 40%;
+        padding: 30px 40px 20px 0;
+        color: $font-color;
+        font-size: 16px;
+        border-radius: 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        transition: background-color 0.3s ease; 
+        background-color: transparent;
+    }
+    &__title{
+        font-size: 30px;
+        font-weight: 600;
+        margin: 20px 0 30px 0;
+    }
+    &__text{
+        padding: 10px;
+    }
+    &__text--wrap{
+        display: block;
+    }
+    &__text--long{
+        display: none;
+    }
+    &__collapsed--wrap {
+        display: block;
+    } 
+    &__collapsed--long {
+        display: block;
+    }
+    &__info--expanded {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 4px;
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
+        justify-content: flex-start;
+        gap: 10px;
+        width: 100%;
         padding: 20px;
         color: $font-color;
         font-size: 16px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        display: flex;
-        flex-direction: column;
-        text-align: justify;
+        border-radius: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        animation: revealText 0.5s 0.3s forwards;
     }
-    &__text--wrap{
-        
-        padding: 20px 0;
+    &--transition {
+        transition: background-color 0.3s ease;
+        border-radius: 20px;
     }
     &__btn{
         position: absolute;
-        bottom: 100px;
-        right: 100px;
+        bottom: 50px;
+        right: 50px;
         max-width: 200px;
-        width: 100px;
+        width: 120px;
         height: 40px;
+        background-color: $bg-color;
+        border-radius: 5px;
+        color: $font-color-dark;
+        font-weight: 600;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
         &--italic{
-            font-size: 20px;
-            font-weight: 500;
             font-style: italic;
         }
+        cursor: pointer;
+        &:hover{
+            background-color: darken($bg-color, 10%);
+        }
     }
-    
 }
 .footer{
     display: flex;
