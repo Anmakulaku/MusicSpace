@@ -1,0 +1,11 @@
+@use "./variables" as *;
+
+.logo{
+    flex-grow: 1;
+    max-width: 200px;
+    height: auto;
+    &__img{
+        width: 100%;
+        border-radius: 50px;
+    }
+}
