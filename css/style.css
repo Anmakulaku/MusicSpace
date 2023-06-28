@@ -4,8 +4,9 @@
   border-radius: 20px;
   background-color: #FAFAFA;
   color: #424242;
+  font-family: "Segoe UI";
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1px;
   cursor: pointer;
 }
@@ -37,8 +38,8 @@
 }
 
 .about__btn--italic {
-  bottom: 50px;
-  right: 50px;
+  bottom: 10%;
+  right: 10%;
   font-style: italic;
 }
 
@@ -59,19 +60,19 @@
 }
 
 .page {
-  margin: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  text-align: justify;
+  margin: 20px;
   min-height: 100vh;
   background-color: #FAFAFA;
 }
 
 .banner {
-  text-align: center;
   max-width: 1500px;
-  margin: 0 auto;
+  margin: 0 auto 20px auto;
   height: auto;
   position: relative;
   overflow: hidden;
@@ -79,7 +80,6 @@
 .banner__img {
   max-width: 100%;
   display: block;
-  margin-bottom: 20px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 20px;
@@ -89,26 +89,26 @@
   top: 5%;
   left: 16%;
   transform: translate(-50%, 50%);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #E0E0E0;
+  font-family: "Segoe UI";
+  font-size: 16px;
   font-weight: 500;
+  letter-spacing: 1px;
 }
 .banner__title--large {
-  font-size: 50px;
-  color: #E0E0E0;
+  font-size: 3.125rem;
 }
 .banner__title--medium {
-  font-size: 30px;
-  color: #E0E0E0;
-  margin-top: 100px;
-  margin-left: 10px;
+  font-size: 1.875rem;
+  margin: 100px 0 0 10px;
 }
 
 .menu {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
-  max-width: 1500px;
+  align-items: center;
+  text-align: justify;
   width: 100%;
   height: auto;
   margin: 0 auto;
@@ -117,11 +117,12 @@
   border-bottom: 2px solid #616161;
 }
 .menu__list {
-  flex-grow: 2;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-evenly;
+  align-items: center;
+  text-align: justify;
+  flex-grow: 2;
   gap: 30px;
   margin: 0 20px;
   text-transform: uppercase;
@@ -138,10 +139,10 @@
 .menu__link {
   text-decoration: none;
   color: #424242;
-  font-size: 18px;
+  font-family: "Segoe UI";
+  font-size: 1.125rem;
   font-weight: 700;
   letter-spacing: 1px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   cursor: pointer;
 }
 .menu__link:hover {
@@ -150,8 +151,10 @@
 .menu .search {
   position: relative;
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
+  text-align: justify;
 }
 .menu .search__input {
   display: none;
@@ -161,8 +164,6 @@
   margin-right: 15px;
   border-radius: 20px;
   border: #E0E0E0 2px solid;
-  font-size: 16px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #E0E0E0;
 }
 .menu .search__input:focus {
@@ -171,17 +172,15 @@
 
 .about {
   position: relative;
-  max-width: 1500px;
   width: 100%;
   margin: 20px auto;
 }
 .about__photo {
-  width: 100%;
-  height: auto;
   position: relative;
   overflow: hidden;
 }
 .about__img {
+  max-width: 100%;
   width: 100%;
   height: 500px;
   -o-object-fit: cover;
@@ -195,19 +194,25 @@
   bottom: 4px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   text-align: justify;
   width: 40%;
   padding: 30px 40px 20px 0;
-  color: #E0E0E0;
-  font-size: 16px;
   border-radius: 20px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI";
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #E0E0E0;
   transition: background-color 0.3s ease;
   background-color: transparent;
 }
 .about__title {
+  font-family: "Segoe UI";
   font-size: 30px;
   font-weight: 600;
+  letter-spacing: 1px;
   margin: 20px 0 30px 0;
 }
 .about__text {
@@ -232,15 +237,18 @@
   bottom: 4px;
   display: flex;
   flex-direction: column;
-  text-align: justify;
   justify-content: flex-start;
+  align-items: flex-start;
+  text-align: justify;
   gap: 10px;
   width: 100%;
+  border-radius: 20px;
   padding: 20px;
   color: #E0E0E0;
+  font-family: "Segoe UI";
   font-size: 16px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  border-radius: 20px;
+  font-weight: 300;
+  letter-spacing: 1px;
   background-color: rgba(0, 0, 0, 0.7);
   animation: revealText 0.5s 0.3s forwards;
 }
@@ -252,13 +260,14 @@
 .footer {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
+  text-align: justify;
   max-width: 1500px;
   width: 100%;
   height: auto;
   margin: 0 auto;
+  padding: 10px 0;
   background-color: #FAFAFA;
   border-top: 2px solid #616161;
 }/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,16 @@
+@use "./variables" as *;
+
+@mixin setFlex ($flex-direction, $justify-content: center, $align-items: center) {
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    text-align: justify;
+}
+
+@mixin setFont ($font-family, $font-size: 16px, $font-weight: 300, $letter-spacing: 1px) {
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    letter-spacing: $letter-spacing;
+}
