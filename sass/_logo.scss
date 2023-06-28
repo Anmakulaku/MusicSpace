@@ -1,9 +1,9 @@
 @use "./variables" as *;
+@use "./mixins" as *;
 
 .logo{
     flex-grow: 1;
-    max-width: 200px;
-    height: auto;
+    @include setDimensions(100%, auto, 200px);
     &__img{
         width: 100%;
         border-radius: 50px;

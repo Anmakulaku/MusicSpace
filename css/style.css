@@ -13,9 +13,9 @@
 
 .button {
   position: absolute;
-  max-width: 200px;
   width: 120px;
   height: 40px;
+  max-width: 200px;
 }
 .button:hover {
   background-color: #c7c7c7;
@@ -28,6 +28,7 @@
   font-size: 20px;
   width: 180px;
   height: 50px;
+  max-width: none;
 }
 
 .search__btn {
@@ -45,8 +46,9 @@
 
 .logo {
   flex-grow: 1;
-  max-width: 200px;
+  width: 100%;
   height: auto;
+  max-width: 200px;
 }
 .logo__img {
   width: 100%;
@@ -65,15 +67,17 @@
   justify-content: center;
   align-items: center;
   text-align: justify;
+  max-width: 1500px;
   margin: 20px;
   min-height: 100vh;
   background-color: #FAFAFA;
 }
 
 .banner {
-  max-width: 1500px;
-  margin: 0 auto 20px auto;
+  width: 100%;
   height: auto;
+  max-width: none;
+  margin: 0 auto 20px auto;
   position: relative;
   overflow: hidden;
 }
@@ -111,6 +115,7 @@
   text-align: justify;
   width: 100%;
   height: auto;
+  max-width: none;
   margin: 0 auto;
   background-color: #FAFAFA;
   border-top: 2px solid #616161;
@@ -160,6 +165,7 @@
   display: none;
   width: 180px;
   height: 44px;
+  max-width: none;
   padding: 0 10px;
   margin-right: 15px;
   border-radius: 20px;
@@ -176,13 +182,12 @@
   margin: 20px auto;
 }
 .about__photo {
-  position: relative;
   overflow: hidden;
 }
 .about__img {
-  max-width: 100%;
   width: 100%;
   height: 500px;
+  max-width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 20px;
@@ -263,9 +268,9 @@
   justify-content: center;
   align-items: center;
   text-align: justify;
-  max-width: 1500px;
   width: 100%;
   height: auto;
+  max-width: none;
   margin: 0 auto;
   padding: 10px 0;
   background-color: #FAFAFA;
