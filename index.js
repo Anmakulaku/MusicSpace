@@ -48,6 +48,25 @@ button.addEventListener('click', function() {
         }
 });
 
+// active
+
+// Znajdź elementy menu
+const menuItems = document.querySelectorAll('.menu__item');
+
+// Dodaj obsługę kliknięcia na elementy menu
+menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+        // Usuń klasę "active" z wszystkich elementów menu
+        menuItems.forEach(item => {
+        item.classList.remove('menu__item--active');
+        });
+
+        // Dodaj klasę "active" do klikniętego elementu menu
+        item.classList.add('menu__item--active');
+        });
+});
+
+
 
 
 
