@@ -24,10 +24,11 @@
 .banner__btn{
     &--large{
         bottom: 20%;
-        right: 20%;
+        right: 15%;
         transform: translate(50%, 50%);
         font-size: 20px;
         @include setDimensions(180px, 50px);
+        border-radius: 25px;
     }
 }
 .search__btn{
@@ -39,8 +40,8 @@
 
 .about__btn{
     &--italic{
-        bottom: 10%;
-        right: 10%;
+        bottom: 60px;
+        right: 60px;
         font-style: italic;
     }
 }

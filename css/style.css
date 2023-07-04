@@ -16,6 +16,7 @@
   width: 120px;
   height: 40px;
   max-width: 200px;
+  max-height: none;
 }
 .button:hover {
   background-color: #c7c7c7;
@@ -23,12 +24,14 @@
 
 .banner__btn--large {
   bottom: 20%;
-  right: 20%;
+  right: 15%;
   transform: translate(50%, 50%);
   font-size: 20px;
   width: 180px;
   height: 50px;
   max-width: none;
+  max-height: none;
+  border-radius: 25px;
 }
 
 .search__btn {
@@ -39,8 +42,8 @@
 }
 
 .about__btn--italic {
-  bottom: 10%;
-  right: 10%;
+  bottom: 60px;
+  right: 60px;
   font-style: italic;
 }
 
@@ -49,6 +52,7 @@
   width: 100%;
   height: auto;
   max-width: 200px;
+  max-height: none;
 }
 .logo__img {
   width: 100%;
@@ -75,14 +79,18 @@
 
 .banner {
   width: 100%;
-  height: auto;
+  height: 500px;
   max-width: none;
+  max-height: none;
   margin: 0 auto 20px auto;
   position: relative;
   overflow: hidden;
 }
 .banner__img {
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
@@ -90,21 +98,32 @@
 }
 .banner__title {
   position: absolute;
-  top: 5%;
-  left: 16%;
+  top: 10%;
+  left: 25%;
   transform: translate(-50%, 50%);
   color: #E0E0E0;
-  font-family: "Segoe UI";
+  font-family: "Cinzel";
   font-size: 16px;
   font-weight: 500;
-  letter-spacing: 1px;
+  letter-spacing: 5px;
 }
 .banner__title--large {
-  font-size: 3.125rem;
+  font-size: 3.75rem;
 }
 .banner__title--medium {
-  font-size: 1.875rem;
-  margin: 100px 0 0 10px;
+  font-size: 2.5rem;
+  margin: 180px 0 0 160px;
+}
+.banner .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .menu {
@@ -116,13 +135,14 @@
   width: 100%;
   height: auto;
   max-width: 1500px;
+  max-height: none;
   margin: 0 auto;
   position: sticky;
   top: 0;
   z-index: 3;
-  background-color: #FAFAFA;
   border-top: 2px solid #616161;
   border-bottom: 2px solid #616161;
+  background-color: #FAFAFA;
 }
 .menu__list {
   display: flex;
@@ -169,11 +189,11 @@
   width: 180px;
   height: 44px;
   max-width: none;
+  max-height: none;
   padding: 0 10px;
   margin-right: 15px;
   border-radius: 20px;
   border: #E0E0E0 2px solid;
-  background-color: #E0E0E0;
 }
 .menu .search__input:focus {
   width: 200px;
@@ -189,6 +209,7 @@
   width: 100%;
   height: 500px;
   max-width: none;
+  max-height: none;
   overflow: hidden;
   border-radius: 20px;
 }
@@ -196,6 +217,7 @@
   width: 100%;
   height: auto;
   max-width: none;
+  max-height: none;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -231,6 +253,10 @@
   padding: 10px;
 }
 .about__text--wrap {
+  font-family: "Segoe UI";
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
   display: block;
 }
 .about__text--long {
@@ -238,7 +264,10 @@
 }
 .about__text--long span {
   display: block;
-  font-weight: bold;
+  font-family: "Segoe UI";
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
   margin-top: 20px;
 }
 .about__collapsed--wrap {
@@ -264,7 +293,7 @@
   color: #E0E0E0;
   font-family: "Segoe UI";
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 1px;
   background-color: rgba(0, 0, 0, 0.7);
   animation: revealText 0.5s 0.3s forwards;
@@ -272,6 +301,72 @@
 .about--transition {
   transition: background-color 0.3s ease;
   border-radius: 20px;
+}
+
+.shop {
+  width: 100%;
+  height: auto;
+  max-width: 1500px;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  scroll-margin-top: 100px;
+}
+.shop__content {
+  display: block;
+  border-top: 2px solid #616161;
+  border-bottom: 2px solid #616161;
+}
+.shop__title {
+  font-family: "Segoe UI";
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0px;
+  margin: 20px 10px;
+}
+.shop__text {
+  font-family: "Segoe UI";
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  margin: 10px 10px 20px 10px;
+}
+.shop__select {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: justify;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+.shop__sortTitle {
+  font-family: "Segoe UI";
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  margin: 0 10px;
+}
+.shop__sortItem {
+  font-family: "Segoe UI";
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  margin: 0 10px;
+  padding: 4px;
+  border: 2px solid #E0E0E0;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.shop__sortItem:hover {
+  border: 2px solid #4CAF50;
 }
 
 .footer {
@@ -283,6 +378,7 @@
   width: 100%;
   height: auto;
   max-width: none;
+  max-height: none;
   margin: 0 auto;
   padding: 10px 0;
   background-color: #FAFAFA;

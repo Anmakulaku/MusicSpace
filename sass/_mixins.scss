@@ -15,8 +15,9 @@
     letter-spacing: $letter-spacing;
 }
 
-@mixin setDimensions($width, $height, $max-width: none) {
+@mixin setDimensions($width, $height, $max-width: none, $max-height: none) {
     width: $width;
     height: $height;
     max-width: $max-width;
+    max-height: $max-height;
 }
