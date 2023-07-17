@@ -67,7 +67,7 @@ menuItems.forEach(item => {
 });
 
 // Pobranie danych z pliku products.js za pomocą fetch
-fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/main/js/products.json')
+fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/products.json')
         .then(response => response.json())
         .then(products => {
         // Tutaj możesz przetworzyć pobrane produkty i wykorzystać je na stronie
@@ -78,19 +78,19 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/main/js/products.
         });
 
         // Przykład: Generowanie elementów HTML dla każdego produktu i dodawanie ich do strony
-        const productList = document.querySelector('.product-list');
+        // const productList = document.querySelector('.product-list');
 
-        products.forEach(product => {
-        const productItem = document.createElement('div');
-        productItem.classList.add('product-item');
-        productItem.innerHTML = `
-                <img src="${product.imgSrc}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p>Price: ${product.price}</p>
-                <p>In stock: ${product.instock}</p>
-        `;
-        productList.appendChild(productItem);
-        });
+        // products.forEach(product => {
+        // const productItem = document.createElement('div');
+        // productItem.classList.add('product-item');
+        // productItem.innerHTML = `
+        //         <img src="${product.imgSrc}" alt="${product.name}">
+        //         <h3>${product.name}</h3>
+        //         <p>Price: ${product.price}</p>
+        //         <p>In stock: ${product.instock}</p>
+        // `;
+        // productList.appendChild(productItem);
+        // });
         })
         .catch(error => {
         console.error('Wystąpił błąd podczas pobierania danych z pliku products.js:', error);
