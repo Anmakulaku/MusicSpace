@@ -66,35 +66,44 @@ menuItems.forEach(item => {
         });
 });
 
-// Pobranie danych z pliku products.js za pomocą fetch
 fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/products.json')
         .then(response => response.json())
-        .then(products => {
-        // Tutaj możesz przetworzyć pobrane produkty i wykorzystać je na stronie
-
-        // Przykład: Wyświetlenie nazw produktów w konsoli
-        products.forEach(product => {
-        console.log(product.name);
-        });
-
-        // Przykład: Generowanie elementów HTML dla każdego produktu i dodawanie ich do strony
-        // const productList = document.querySelector('.product-list');
-
-        // products.forEach(product => {
-        // const productItem = document.createElement('div');
-        // productItem.classList.add('product-item');
-        // productItem.innerHTML = `
-        //         <img src="${product.imgSrc}" alt="${product.name}">
-        //         <h3>${product.name}</h3>
-        //         <p>Price: ${product.price}</p>
-        //         <p>In stock: ${product.instock}</p>
-        // `;
-        // productList.appendChild(productItem);
-        // });
+        .then(data => {
+                const products = data.products;
+                const shopCardContainer = document.querySelector('.shop__card');
+                
+                products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+                
+                // Generowanie zawartości karty produktu
+                const productName = document.createElement('h3');
+                productName.textContent = product.name;
+                
+                const productImage = document.createElement('img');
+                productImage.src = product.imgSrc;
+                productImage.alt = product.name;
+                
+                const productPrice = document.createElement('p');
+                productPrice.textContent = 'Price: ' + product.price;
+                
+                const productStock = document.createElement('p');
+                productStock.textContent = 'In stock: ' + product.instock;
+                
+                // Dodawanie elementów do karty produktu
+                productCard.appendChild(productName);
+                productCard.appendChild(productImage);
+                productCard.appendChild(productPrice);
+                productCard.appendChild(productStock);
+                
+                // Dodawanie karty produktu do kontenera
+                shopCardContainer.appendChild(productCard);
+                });
         })
         .catch(error => {
         console.error('Wystąpił błąd podczas pobierania danych z pliku products.js:', error);
-});
+        });
+
 
 
 

@@ -1,40 +1,103 @@
 {
 "products": [
     {
-        "id": 0,
+        "id": "0",
         "productCategory": "GitaraAkustyczna",
         "productTag": "Fender",
         "name": "Fender FSR CD-60 Dreadnought, WF, Cherry",
         "price": "810,00",
         "imgSrc": "/images/Fender_FSR_CD-60.jpg",
         "instock": "20"
-    },
+        },
     {
-        "id": 1,
+        "id": "1",
         "productCategory": "GitaraAkustyczna",
         "productTag": "Fender",
         "name": "Fender FSR CD-60S Dreadnought, WF, Exotic Flame Maple",
         "price": "1120,00",
         "imgSrc": "/images/Fender_FSR_CD-60S.jpg",
         "instock": "30"
-    },
+        },
     {
-        "id": 2,
+        "id": "2",
         "productCategory": "GitaraAkustyczna",
         "productTag": "Baton Rouge",
         "name": "Baton Rouge X11LS/D",
         "price": "920,00",
         "imgSrc": "/images/Baton_Rouge_X11LS-D.jpg",
         "instock": "15"
-    },
+        },
     {
-        "id": 3,
+        "id": "3",
         "productCategory": "GitaraAkustyczna",
         "productTag": "Baton Rouge",
         "name": "Baton Rouge X11LS/F-AB-12",
         "price": "890,00",
         "imgSrc": "/images/Baton_Rouge_X11LS-F-AB-12.jpg",
         "instock": "5"
-    }
+        },
+    {
+        "id": "4",
+        "productCategory": "GitaraAkustyczna",
+        "productTag": "Randon",
+        "name": "Randon RGI 10VT CE",
+        "price": "1390,00",
+        "imgSrc": "/images/Randon_RGI_10VT_CE.jpg",
+        "instock": "2"
+        },
+    {
+        "id": "5",
+        "productCategory": "GitaraAkustyczna",
+        "productTag": "Randon",
+        "name": "Randon RGI 01",
+        "price": "720,00",
+        "imgSrc": "/images/Randon_RGI_01.jpg",
+        "instock": "7"
+        },
+    {
+        "id": "6",
+        "productCategory": "GitaraAkustyczna",
+        "productTag": "Fender",
+        "name": "Fender Redondo Mini WN NAT",
+        "price": "820,00",
+        "imgSrc": "/images/Fender Redondo_Mini_WN_NAT.jpg",
+        "instock": "13"
+        },
+    {
+        "id": "7",
+        "productCategory": "GitaraAkustyczna",
+        "productTag": "Ibanez",
+        "name": "Ibanez AW54CE-OPN",
+        "price": "1850,00",
+        "imgSrc": "/images/Ibanez_AW54CE-OPN.jpg",
+        "instock": "2"
+        },
+    {
+        "id": "8",
+        "productCategory": "GitaraAkustyczna",
+        "productTag": "Ibanez",
+        "name": "Ibanez PF1512ECE NT",
+        "price": "1600,00",
+        "imgSrc": "/images/Ibanez_PF1512ECE_NT.jpg",
+        "instock": "3"
+        },
+    {
+        "id": "9",
+        "productCategory": "GitaraAkustyczna",
+        "productTag": "Baton Rouge",
+        "name": "Baton Rouge L1 5S/D",
+        "price": "1020,00",
+        "imgSrc": "/images/Baton Rouge_L1_5S_D.jpg",
+        "instock": "6"
+        },
+    {
+        "id": "10",
+        "productCategory": "GitaraAkustyczna",
+        "productTag": "Takamine",
+        "name": "Takamine GD10-NS LH",
+        "price": "900,00",
+        "imgSrc": "/images/Takamine_GD10-NS_LH.jpg",
+        "instock": "4"
+        },
 ]
 }
