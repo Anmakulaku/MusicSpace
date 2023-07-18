@@ -34,7 +34,7 @@
         "name": "Baton Rouge X11LS/F-AB-12",
         "price": "890,00",
         "imgSrc": "/images/Baton_Rouge_X11LS-F-AB-12.jpg",
-        "instock": "5"
+        "instock": "0"
         },
     {
         "id": "4",
@@ -61,7 +61,7 @@
         "name": "Fender Redondo Mini WN NAT",
         "price": "820,00",
         "imgSrc": "/images/Fender Redondo_Mini_WN_NAT.jpg",
-        "instock": "13"
+        "instock": "0"
         },
     {
         "id": "7",
