@@ -19,7 +19,6 @@
             background-color: darken($font-color, 10%);
         }
     
-    
 }
 .banner__btn{
     &--large{
@@ -61,4 +60,16 @@
         border: 2px solid $btn-color-dark;
         color: $btn-color-dark;
     }
+}
+.prev-btn,
+.next-btn {
+    background-color: $white;
+    color: $btn-color-dark;
+    border: none;
+    border-radius: $border-radius;
+    padding: 5px 10px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 25px;
+    font-weight: 500;
 }

@@ -70,6 +70,21 @@
   color: #38743b;
 }
 
+.prev-btn,
+.next-btn {
+  background-color: #FFFFFF;
+  color: #38743b;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  font-size: 25px;
+  font-weight: 500;
+}
+
 .logo {
   flex-grow: 1;
   width: 100%;
@@ -437,6 +452,45 @@
 }
 .shop .product-availability.unavailable {
   color: red;
+}
+.shop .pagination {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: #FFFFFF;
+  right: 5px;
+  margin-bottom: 5px;
+  height: auto;
+  width: 150px;
+  border-radius: 20px;
+}
+.shop .page__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+}
+.shop .page__item {
+  margin: 5px;
+  cursor: pointer;
+  font-size: large;
+  font-weight: bold;
+  color: #38743b;
+}
+.shop .page__item {
+  padding: 5px 10px;
+  display: inline-block;
+  text-decoration: none;
+  color: #616161;
+  transition: #616161 0.3s ease;
+  margin: 0 2px; /* Dodane marginesy */
+}
+.shop .page__item--active {
+  color: #38743b;
+  text-decoration: underline;
+}
+.shop .page__link:hover {
+  background-color: #ddd;
 }
 
 .footer {

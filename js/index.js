@@ -69,86 +69,137 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
         .then(data => {
                 const products = data.products;
                 const shopCardContainer = document.querySelector('.shop__card');
-
-                function displayProducts(numToShow, sortBy) {
-                        shopCardContainer.innerHTML = ''; // Clear the container
-
-                        let sortedProducts = [...products];
-
-                        if (sortBy === 'priceLow') {
-                                sortedProducts.sort((a, b) => a.price - b.price);
-                        } else if (sortBy === 'priceHigh') {
-                                sortedProducts.sort((a, b) => b.price - a.price);
-                        } else if (sortBy === 'default') { // No sorting 
-                        }
-        
-                        for (let i = 0; i < numToShow && i < sortedProducts.length; i++) {
-                                const product = sortedProducts[i];
-
-                                const productCard = document.createElement('div');
-                                productCard.classList.add('product-card');
-
-                                // Generowanie zawartości karty produktu
-                                const productName = document.createElement('h3');
-                                productName.textContent = product.name;
-                                
-                                const productImage = document.createElement('img');
-                                productImage.src = product.imgSrc;
-                                productImage.alt = product.name;
-                                
-                                const productPrice = document.createElement('p');
-                                productPrice.textContent = 'Cena: ' + product.price + ' PLN';
-                                productPrice.classList.add('product-price');
-                                
-                                const productAvailability = document.createElement('p');
-                                productAvailability.textContent = product.instock > 0 ? "Dostępna" : "Niedostępna";
-                                productAvailability.classList.add('product-availability');
-                                productAvailability.classList.add(product.instock > 0 ? 'available' : 'unavailable');
-
-                                const productButton = document.createElement('button');
-                                productButton.textContent = "KUP TERAZ";
-
-                                // Dodawanie elementów do karty produktu
-                                productCard.appendChild(productName);
-                                productCard.appendChild(productImage);
-                                productCard.appendChild(productPrice);
-                                productCard.appendChild(productAvailability);
-                                productCard.appendChild(productButton);
-
-                                // Dodawanie karty produktu do kontenera
-                                shopCardContainer.appendChild(productCard);
-                        }
-                }
-
                 const perPageSelect = document.getElementById('perPageSelect');
                 const sortSelect = document.getElementById('sortSelect');
+                const prevButton = document.querySelector('.prev-btn');
+                const nextButton = document.querySelector('.next-btn');
+                const pageList = document.querySelector('.page__list');
+                
+                let currentPage = 1;
+                let productsPerPage = parseInt(perPageSelect.value);
+
+                function displayProducts(startIdx, endIdx, sortBy) {
+                shopCardContainer.innerHTML = ''; // Clear the container
+
+                let sortedProducts = [...products];
+
+                if (sortBy === 'priceLow') {
+                        sortedProducts.sort((a, b) => a.price - b.price);
+                } else if (sortBy === 'priceHigh') {
+                        sortedProducts.sort((a, b) => b.price - a.price);
+                } else if (sortBy === 'default') { // No sorting 
+                }
+
+                for (let i = startIdx; i < endIdx && i < sortedProducts.length; i++) {
+                        const product = sortedProducts[i];
+                        const productCard = document.createElement('div');
+                        productCard.classList.add('product-card');
+
+                        // Generowanie zawartości karty produktu
+                        const productName = document.createElement('h3');
+                        productName.textContent = product.name;
+                        
+                        const productImage = document.createElement('img');
+                        productImage.src = product.imgSrc;
+                        productImage.alt = product.name;
+                        
+                        const productPrice = document.createElement('p');
+                        productPrice.textContent = 'Cena: ' + product.price + ' PLN';
+                        productPrice.classList.add('product-price');
+                        
+                        const productAvailability = document.createElement('p');
+                        productAvailability.textContent = product.instock > 0 ? "Dostępna" : "Niedostępna";
+                        productAvailability.classList.add('product-availability');
+                        productAvailability.classList.add(product.instock > 0 ? 'available' : 'unavailable');
+
+                        const productButton = document.createElement('button');
+                        productButton.textContent = "KUP TERAZ";
+
+                        // Dodawanie elementów do karty produktu
+                        productCard.appendChild(productName);
+                        productCard.appendChild(productImage);
+                        productCard.appendChild(productPrice);
+                        productCard.appendChild(productAvailability);
+                        productCard.appendChild(productButton);
+
+                        // Dodawanie karty produktu do kontenera
+                        shopCardContainer.appendChild(productCard);
+                }
+                }
+
+                function updatePaginationButtons() {
+                prevButton.disabled = currentPage === 1;
+                nextButton.disabled = currentPage === Math.ceil(products.length / productsPerPage);
+                }
+
+                function createPageButtons() {
+                pageList.innerHTML = '';
+
+                const totalPages = Math.ceil(products.length / productsPerPage);
+
+                for (let i = 1; i <= totalPages; i++) {
+                        const pageItem = document.createElement('li');
+                        pageItem.textContent = i;
+                        pageItem.classList.add('page__item');
+                        if (i === currentPage) {
+                        pageItem.classList.add('page__item--active');
+                        }
+                        pageList.appendChild(pageItem);
+
+                        pageItem.addEventListener('click', () => {
+                        currentPage = i;
+                        updatePaginationButtons();
+                        displayProducts((currentPage - 1) * productsPerPage, currentPage * productsPerPage, sortSelect.value);
+                        updatePageButtons();
+                        });
+                }
+                }
+
+                function updatePageButtons() {
+                const pageItems = document.querySelectorAll('.page__item');
+                pageItems.forEach(item => item.classList.remove('page__item--active'));
+                pageItems[currentPage - 1].classList.add('page__item--active');
+                }
 
                 perPageSelect.addEventListener('change', () => {
-                        const selectedPerPage = parseInt(perPageSelect.value);
-                        const selectedSort = sortSelect.value;
-                        displayProducts(selectedPerPage, selectedSort);
+                currentPage = 1; // Reset to first page when changing products per page
+                productsPerPage = parseInt(perPageSelect.value);
+                displayProducts(0, productsPerPage, sortSelect.value);
+                updatePaginationButtons();
+                createPageButtons();
                 });
-        
+
                 sortSelect.addEventListener('change', () => {
-                        const selectedPerPage = parseInt(perPageSelect.value);
-                        const selectedSort = sortSelect.value;
-                        displayProducts(selectedPerPage, selectedSort);
+                currentPage = 1; // Reset to first page when changing sorting
+                displayProducts(0, productsPerPage, sortSelect.value);
+                updatePaginationButtons();
+                createPageButtons();
                 });
-                // Inicjalne wyświetlenie produktów
-                const initialPerPage = parseInt(perPageSelect.value);
-                const initialSort = sortSelect.value;
-                displayProducts(initialPerPage, initialSort);
+
+                prevButton.addEventListener('click', () => {
+                if (currentPage > 1) {
+                        currentPage--;
+                        displayProducts((currentPage - 1) * productsPerPage, currentPage * productsPerPage, sortSelect.value);
+                        updatePaginationButtons();
+                        updatePageButtons();
+                }
+                });
+
+                nextButton.addEventListener('click', () => {
+                if (currentPage < Math.ceil(products.length / productsPerPage)) {
+                        currentPage++;
+                        displayProducts((currentPage - 1) * productsPerPage, currentPage * productsPerPage, sortSelect.value);
+                        updatePaginationButtons();
+                        updatePageButtons();
+                }
+                });
+
+                // Initial display
+                displayProducts(0, productsPerPage, sortSelect.value);
+                updatePaginationButtons();
+                createPageButtons();
         })
         .catch(error => {
                 console.error('Wystąpił błąd podczas pobierania danych z pliku products.json:', error);
         });
-
-
-
-
-
-
-
-
-
 

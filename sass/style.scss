@@ -261,6 +261,49 @@
     .product-availability.unavailable {
         color: red;
     }
+    .pagination{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        background-color: $white;
+        right: 5px;
+        margin-bottom: 5px;
+        height: auto;
+        width: 150px;
+        border-radius: $border-radius;
+    }
+    .page__list {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+    }
+    
+    .page__item {
+        margin: 5px;
+        cursor: pointer;
+        font-size: large;
+        font-weight: bold;
+        color: $btn-color-dark;
+    }
+    
+    .page__item {
+        padding: 5px 10px;
+        display: inline-block;
+        text-decoration: none;
+        color: $detail-color;
+        transition: $detail-color 0.3s ease;
+        margin: 0 2px; /* Dodane marginesy */
+        &--active { 
+            color: $btn-color-dark;
+            text-decoration: underline;
+        }
+    }
+    
+    
+    .page__link:hover {
+        background-color: #ddd;
+    }
 }
 .footer{
     @include setFlex(row, space-between);
