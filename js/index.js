@@ -50,18 +50,16 @@ button.addEventListener('click', function() {
 
 // active
 
-// Znajdź elementy menu
 const menuItems = document.querySelectorAll('.menu__item');
 
-// Dodaj obsługę kliknięcia na elementy menu
 menuItems.forEach(item => {
         item.addEventListener('click', () => {
-        // Usuń klasę "active" z wszystkich elementów menu
         menuItems.forEach(item => {
+        // Usuwanie klasy "active" do klikniętego elementu menu
         item.classList.remove('menu__item--active');
-        });
+        });   
 
-        // Dodaj klasę "active" do klikniętego elementu menu
+        // Dodawanie klasy "active" do klikniętego elementu menu
         item.classList.add('menu__item--active');
         });
 });
@@ -71,39 +69,79 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
         .then(data => {
                 const products = data.products;
                 const shopCardContainer = document.querySelector('.shop__card');
-                
-                products.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.classList.add('product-card');
-                
-                // Generowanie zawartości karty produktu
-                const productName = document.createElement('h3');
-                productName.textContent = product.name;
-                
-                const productImage = document.createElement('img');
-                productImage.src = product.imgSrc;
-                productImage.alt = product.name;
-                
-                const productPrice = document.createElement('p');
-                productPrice.textContent = 'Price: ' + product.price;
-                
-                const productStock = document.createElement('p');
-                productStock.textContent = 'In stock: ' + product.instock;
-                
-                // Dodawanie elementów do karty produktu
-                productCard.appendChild(productName);
-                productCard.appendChild(productImage);
-                productCard.appendChild(productPrice);
-                productCard.appendChild(productStock);
-                
-                // Dodawanie karty produktu do kontenera
-                shopCardContainer.appendChild(productCard);
+
+                function displayProducts(numToShow, sortBy) {
+                        shopCardContainer.innerHTML = ''; // Clear the container
+
+                        let sortedProducts = [...products];
+
+                        if (sortBy === 'priceLow') {
+                                sortedProducts.sort((a, b) => a.price - b.price);
+                        } else if (sortBy === 'priceHigh') {
+                                sortedProducts.sort((a, b) => b.price - a.price);
+                        } else if (sortBy === 'default') { // No sorting 
+                        }
+        
+                        for (let i = 0; i < numToShow && i < sortedProducts.length; i++) {
+                                const product = sortedProducts[i];
+
+                                const productCard = document.createElement('div');
+                                productCard.classList.add('product-card');
+
+                                // Generowanie zawartości karty produktu
+                                const productName = document.createElement('h3');
+                                productName.textContent = product.name;
+                                
+                                const productImage = document.createElement('img');
+                                productImage.src = product.imgSrc;
+                                productImage.alt = product.name;
+                                
+                                const productPrice = document.createElement('p');
+                                productPrice.textContent = 'Cena: ' + product.price + ' PLN';
+                                productPrice.classList.add('product-price');
+                                
+                                const productAvailability = document.createElement('p');
+                                productAvailability.textContent = product.instock > 0 ? "Dostępna" : "Niedostępna";
+                                productAvailability.classList.add('product-availability');
+                                productAvailability.classList.add(product.instock > 0 ? 'available' : 'unavailable');
+
+                                const productButton = document.createElement('button');
+                                productButton.textContent = "KUP TERAZ";
+
+                                // Dodawanie elementów do karty produktu
+                                productCard.appendChild(productName);
+                                productCard.appendChild(productImage);
+                                productCard.appendChild(productPrice);
+                                productCard.appendChild(productAvailability);
+                                productCard.appendChild(productButton);
+
+                                // Dodawanie karty produktu do kontenera
+                                shopCardContainer.appendChild(productCard);
+                        }
+                }
+
+                const perPageSelect = document.getElementById('perPageSelect');
+                const sortSelect = document.getElementById('sortSelect');
+
+                perPageSelect.addEventListener('change', () => {
+                        const selectedPerPage = parseInt(perPageSelect.value);
+                        const selectedSort = sortSelect.value;
+                        displayProducts(selectedPerPage, selectedSort);
                 });
+        
+                sortSelect.addEventListener('change', () => {
+                        const selectedPerPage = parseInt(perPageSelect.value);
+                        const selectedSort = sortSelect.value;
+                        displayProducts(selectedPerPage, selectedSort);
+                });
+                // Inicjalne wyświetlenie produktów
+                const initialPerPage = parseInt(perPageSelect.value);
+                const initialSort = sortSelect.value;
+                displayProducts(initialPerPage, initialSort);
         })
         .catch(error => {
-        console.error('Wystąpił błąd podczas pobierania danych z pliku products.js:', error);
+                console.error('Wystąpił błąd podczas pobierania danych z pliku products.json:', error);
         });
-
 
 
 
