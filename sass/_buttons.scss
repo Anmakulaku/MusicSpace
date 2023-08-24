@@ -63,13 +63,11 @@
 }
 .prev-btn,
 .next-btn {
+    @include setFont("Cinzel", 25px, 500, 0px);
     background-color: $white;
     color: $btn-color-dark;
     border: none;
     border-radius: $border-radius;
     padding: 5px 10px;
     cursor: pointer;
-    user-select: none;
-    font-size: 25px;
-    font-weight: 500;
 }

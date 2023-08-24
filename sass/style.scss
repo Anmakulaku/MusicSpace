@@ -12,7 +12,7 @@
 .page{
     @include setFlex(column);
     max-width: 1500px;
-    margin: 20px auto; 
+    margin: 20px auto 0 auto; 
     min-height: 100vh;
     background-color: $bg-color;
 }
@@ -259,7 +259,7 @@
         color: $font-color-dark;
     } 
     .product-availability.unavailable {
-        color: red;
+        color: $red;
     }
     .pagination{
         display: flex;
@@ -306,11 +306,69 @@
     }
 }
 .footer{
-    @include setFlex(row, space-between);
+    @include setFlex(column, space-between);
     @include setDimensions(100%, auto);
     margin: 0 auto;
-    padding: 10px 0;
+    padding: 10px 0 0 0;
     background-color: $bg-color;
     border-top: 2px solid $detail-color;
+    &__content{
+        @include setFlex(row, flex-start);
+        @include setDimensions(100%, auto, 1500px);
+        margin: 0 auto;
+        padding: 10px 0;
+    }
+    &__logo{
+        margin: 0 20px;
+    }
+    &__info{
+        @include setFont("Segoe UI", 16px, 600, 1px);
+        margin: 5px;
+        .companyName{
+            @include setFont("Segoe UI", 20px, 700, 1px);
+            text-transform: uppercase;
+        }
+    }
+    &__contact{
+        @include setFlex(column, $align-items: flex-start);
+        @include setDimensions(100%, auto, 1500px);
+        padding: 0 0 8px 0;
+    }
+    &__phone{
+        @include setFlex(row, $align-items: center);
+        margin: 16px 48px;
+        color: $red;
+        .phoneTitle{
+            @include setFont("Segoe UI", 25px, 700, 1px);
+        }
+        .phoneIcon{
+            fill: $btn-color-dark;
+            height: 40px;
+            margin-right: 10px;
+        }
+    }
+    &__department{
+        @include setFont("Segoe UI", 16px, 700, 1px);
+        margin-left: 50px;
+        padding: 12px 0;
+    }
+    &__link{
+        @include setFont("Segoe UI", 16px, 500, 1px);
+        padding: 8px 0;
+        color: $btn-color;
+        text-decoration: none; 
+        transition: background-color 0.3s;
+        &:hover {
+            color: $btn-color-dark; 
+}
+    }
+    .copyright__info{
+        @include setDimensions(1500px, auto);
+        @include setFont("Segoe UI", 12px, 700, 1px);
+        margin: 0 auto;
+        padding: 10px 0;
+        background-color: $white;
+        color: darken($btn-color, 10%);
+    }
 }
 

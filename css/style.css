@@ -72,17 +72,16 @@
 
 .prev-btn,
 .next-btn {
+  font-family: "Cinzel";
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 0px;
   background-color: #FFFFFF;
   color: #38743b;
   border: none;
   border-radius: 20px;
   padding: 5px 10px;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  font-size: 25px;
-  font-weight: 500;
 }
 
 .logo {
@@ -110,7 +109,7 @@
   align-items: center;
   text-align: justify;
   max-width: 1500px;
-  margin: 20px auto;
+  margin: 20px auto 0 auto;
   min-height: 100vh;
   background-color: #FAFAFA;
 }
@@ -451,7 +450,7 @@
   color: #424242;
 }
 .shop .product-availability.unavailable {
-  color: red;
+  color: #FF0000;
 }
 .shop .pagination {
   display: flex;
@@ -495,7 +494,7 @@
 
 .footer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   text-align: justify;
@@ -504,7 +503,104 @@
   max-width: none;
   max-height: none;
   margin: 0 auto;
-  padding: 10px 0;
+  padding: 10px 0 0 0;
   background-color: #FAFAFA;
   border-top: 2px solid #616161;
+}
+.footer__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: justify;
+  width: 100%;
+  height: auto;
+  max-width: 1500px;
+  max-height: none;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+.footer__logo {
+  margin: 0 20px;
+}
+.footer__info {
+  font-family: "Segoe UI";
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 5px;
+}
+.footer__info .companyName {
+  font-family: "Segoe UI";
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: justify;
+  width: 100%;
+  height: auto;
+  max-width: 1500px;
+  max-height: none;
+  padding: 0 0 8px 0;
+}
+.footer__phone {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  margin: 16px 48px;
+  color: #FF0000;
+}
+.footer__phone .phoneTitle {
+  font-family: "Segoe UI";
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.footer__phone .phoneIcon {
+  fill: #38743b;
+  height: 40px;
+  margin-right: 10px;
+}
+.footer__department {
+  font-family: "Segoe UI";
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-left: 50px;
+  padding: 12px 0;
+}
+.footer__link {
+  font-family: "Segoe UI";
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 8px 0;
+  color: #4CAF50;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+.footer__link:hover {
+  color: #38743b;
+}
+.footer .copyright__info {
+  width: 1500px;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  font-family: "Segoe UI";
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  padding: 10px 0;
+  background-color: #FFFFFF;
+  color: #3d8b40;
 }/*# sourceMappingURL=style.css.map */
