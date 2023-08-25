@@ -5,14 +5,12 @@
 @use "./functions" as *;
 
 *{
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 .page{
     @include setFlex(column);
     max-width: 1500px;
-    margin: 20px auto 0 auto; 
+    margin: 0 auto 0 auto; 
     min-height: 100vh;
     background-color: $bg-color;
 }
@@ -312,27 +310,41 @@
     padding: 10px 0 0 0;
     background-color: $bg-color;
     border-top: 2px solid $detail-color;
-    &__content{
-        @include setFlex(row, flex-start);
+    &__name{
+        @include setFlex(row, space-between);
         @include setDimensions(100%, auto, 1500px);
         margin: 0 auto;
         padding: 10px 0;
+        background-color: $white;
+        border-radius: $border-radius;
     }
     &__logo{
-        margin: 0 20px;
+        margin: 0 auto;
     }
     &__info{
         @include setFont("Segoe UI", 16px, 600, 1px);
-        margin: 5px;
+        margin: 5px 48px;
         .companyName{
             @include setFont("Segoe UI", 20px, 700, 1px);
             text-transform: uppercase;
         }
     }
-    &__contact{
-        @include setFlex(column, $align-items: flex-start);
+    &__content{
+        @include setFlex(row);
         @include setDimensions(100%, auto, 1500px);
-        padding: 0 0 8px 0;
+        align-content: flex-start;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    &__icon{
+        fill: $btn-color-dark;
+        height: 40px;
+        margin-right: 10px;
+    }
+    &__contact{
+        @include setFlex(column, $align-items: flex-start, $justify-content: space-between);
+        @include setDimensions(100%, 100%);
+        flex: 1;
     }
     &__phone{
         @include setFlex(row, $align-items: center);
@@ -341,16 +353,14 @@
         .phoneTitle{
             @include setFont("Segoe UI", 25px, 700, 1px);
         }
-        .phoneIcon{
-            fill: $btn-color-dark;
-            height: 40px;
-            margin-right: 10px;
-        }
     }
     &__department{
         @include setFont("Segoe UI", 16px, 700, 1px);
-        margin-left: 50px;
-        padding: 12px 0;
+        margin: 0 0 12px 48px;  
+    }
+    &__departmentTitle{
+        @include setFont("Segoe UI", 18px, 700, 1px);
+        margin: 0;
     }
     &__link{
         @include setFont("Segoe UI", 16px, 500, 1px);
@@ -360,9 +370,43 @@
         transition: background-color 0.3s;
         &:hover {
             color: $btn-color-dark; 
-}
+        }
     }
-    .copyright__info{
+    &__form{
+        padding: 0 0 8px 0;
+        flex: 1;
+    }
+    &__email{
+        @include setFlex(row, $align-items: center, $justify-content: flex-start);
+        @include setFont("Segoe UI", 25px, 700, 1px);
+        margin: 20px 12px;
+    }
+    &__labelTitle{
+        @include setFont("Segoe UI", 16px, 700, 1px);
+        padding: 8px 0 0 0;
+    }
+    &__labelInput{
+        @include setDimensions(100%, 40px);
+        margin: 8px 0;
+        padding: 5px;
+        border-radius: $border-radius-form;
+        border: $grey 1px solid;
+        &:focus{
+            outline: none; 
+            border: none;
+            box-shadow: 0 0 8px rgba($btn-color-dark, 0.8);
+        }
+    }
+    #message{
+        @include setDimensions(100%, 80%);
+        resize: none;
+    }
+    &__contactForm{
+        @include setFlex(column, $align-items: stretch);
+        @include setDimensions(100%, auto, 1500px);
+        padding: 12px;
+    }
+    .copyright{
         @include setDimensions(1500px, auto);
         @include setFont("Segoe UI", 12px, 700, 1px);
         margin: 0 auto;

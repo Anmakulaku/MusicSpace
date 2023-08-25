@@ -71,3 +71,15 @@
     padding: 5px 10px;
     cursor: pointer;
 }
+.submit{
+    position: sticky;
+    margin-top: 12px;
+    border: 2px solid $btn-color-dark;
+    background-color: $bg-color;
+    color: $btn-color-dark;
+    &:hover {
+        background-color: $btn-color-dark;
+        border: 2px solid $btn-color-dark;
+        color: $white;
+    }
+}
