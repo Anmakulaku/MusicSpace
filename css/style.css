@@ -328,7 +328,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 4px;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -637,14 +637,14 @@
   font-size: 25px;
   font-weight: 700;
   letter-spacing: 1px;
-  margin: 20px 12px;
+  margin: 16px 12px;
 }
 .footer__labelTitle {
   font-family: "Segoe UI";
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 1px;
-  padding: 8px 0 0 0;
+  padding: 0;
 }
 .footer__labelInput {
   width: 100%;
@@ -678,7 +678,7 @@
   height: auto;
   max-width: 1500px;
   max-height: none;
-  padding: 12px;
+  padding: 0 12px 12px 12px;
 }
 .footer .copyright {
   width: 1500px;

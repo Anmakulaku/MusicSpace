@@ -161,7 +161,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        bottom: 4px;
+        bottom: 0;
         @include setFlex(column, flex-start, flex-start);
         gap: 10px;
         width: 100%;
@@ -379,11 +379,11 @@
     &__email{
         @include setFlex(row, $align-items: center, $justify-content: flex-start);
         @include setFont("Segoe UI", 25px, 700, 1px);
-        margin: 20px 12px;
+        margin: 16px 12px;
     }
     &__labelTitle{
-        @include setFont("Segoe UI", 16px, 700, 1px);
-        padding: 8px 0 0 0;
+        @include setFont("Segoe UI", 18px, 700, 1px);
+        padding: 0;
     }
     &__labelInput{
         @include setDimensions(100%, 40px);
@@ -404,7 +404,7 @@
     &__contactForm{
         @include setFlex(column, $align-items: stretch);
         @include setDimensions(100%, auto, 1500px);
-        padding: 12px;
+        padding: 0 12px 12px 12px;
     }
     .copyright{
         @include setDimensions(1500px, auto);

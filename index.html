@@ -12,7 +12,7 @@
 </head>
 <body class="page">
     <!-- Sekcja BANNER -->
-    <header class="banner page__header">
+    <header class="banner page__header" id="home">
         <div class="overlay"></div>
         <img src="images/guitar1.jpg" alt="Zdjecie gitary" class="banner__img">
         <h1 class="banner__title banner__title--large">Music Space</h1>
@@ -22,10 +22,12 @@
     <!-- Sekcja MENU -->
     <nav class="menu page__nav">
         <div class="logo menu__logo">
-            <img src="images/logo.png" alt="Logo Music Space" class="logo__img">
+            <a href="#home" class="menu__link">
+                <img src="images/logo.png" alt="Logo Music Space" class="logo__img">
+            </a>
         </div>
         <ul class="menu__list">
-            <li class="menu__item  menu__item--active"><a href="#home" class="menu__link">Home</a></li>
+            <!-- <li class="menu__item  menu__item--active"><a href="#home" class="menu__link">Home</a></li> -->
             <li class="menu__item"><a href="#about" class="menu__link">O nas</a></li>
             <li class="menu__item"><a href="#shop" class="menu__link">Sprzedaż</a></li>
             <li class="menu__item"><a href="#contact" class="menu__link">Kontakt</a></li>

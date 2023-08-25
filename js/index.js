@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const searchInput = document.querySelector('.search__input');
 const searchButton = document.querySelector('.search__btn');
 
-// Kliknięto poza obszarem inputu i przycisku
+// Kliknięcie poza obszarem inputu i buttona
 document.addEventListener('click', function(event) {
         if (event.target !== searchInput && event.target !== searchButton) {
                 searchInput.style.display = 'none';
