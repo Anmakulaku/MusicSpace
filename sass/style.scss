@@ -14,8 +14,13 @@
     min-height: 100vh;
     background-color: $bg-color;
 }
+ul {
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+}
 .banner{
-    @include setDimensions(100%, 500px);
+    @include setDimensions(100%, 200px);
     margin: 0 auto 20px auto;
     position: relative;
     overflow: hidden;
@@ -27,18 +32,18 @@
     }
     &__title{
         position: absolute;
-        top: 10%;
-        left: 25%;
-        transform: translate(-50%, 50%);
+        top: 0;
+        left: 0;
         color: $font-color;
         @include setFont("Cinzel", $font-weight: 500, $letter-spacing:5px);
 
         &--large{
             font-size: convertPxToRem(60);
+            margin: 30px 0 0 100px;
         }
         &--medium{
             font-size: convertPxToRem(40);
-            margin: 180px 0 0 160px;
+            margin: 100px 0 0 250px;
         }
     }
     .overlay{
@@ -82,9 +87,14 @@
         @include setFont("Segoe UI", convertPxToRem(18), $font-weight: 700);
         cursor: pointer;
         &:hover{
-            color: $font-color;
+            color: $font-color-medium;
         }
         
+    }
+    &__icon{
+        fill: $btn-color-dark;
+        height: 40px;
+        margin: 20px;
     }
     .search{
         position: relative; 
@@ -215,90 +225,85 @@
             border: 2px solid $btn-color; 
         }
     }
-    &__card {
+    &__products{
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-start;
         max-width: 1500px;
     }
-    .product-card {
-        width: calc(25% - 20px); 
+    .product-card-template{
+        flex: 0 1 calc(25% - 20px);
         margin: 10px;
-        padding: 20px;
+        height: 500px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column; 
+        justify-content: space-between;
         border-radius: $border-radius;
         text-align: center;
         background-color: $white;
         transition: transform 0.2s ease-in-out;
-        @include setFont("Segoe UI", 16px, 400, 0px); 
-        display: flex; 
-        flex-direction: column; 
-        justify-content: space-between;
+        @include setFont("Segoe UI", 16px, 400, 0px);
         &:hover {
             transform: translateY(-5px); 
             box-shadow: 0px 2px 2px 2px rgba(220, 220, 220, 0.2);
             cursor: pointer;
         }
     }
-    .product-card img {
-        width: 100%;
-        height: auto;
-        margin: 5px auto;
+    .product-image {
+        width: auto;
+        height: 260px;
+        margin: 0 auto;
+        max-height: 90%;
     }
-    .product-card h3 {
-        margin-bottom: auto;
+    .product-name {
+        margin: 10px 0;
+        max-height: 70px;
+        height: 100%;
     }
-    .product-card p {
-        margin-bottom: 5px;
+    .product-card-template p {
+        margin: 5px 0;
     }
     .product-availability {
         font-weight: bold;
     }
     .product-availability.available {
-        color: $font-color-dark;
+        color: $btn-color-dark;
     } 
     .product-availability.unavailable {
         color: $red;
     }
     .pagination{
         display: flex;
-        justify-content: space-between;
-        flex-direction: row;
+        flex-wrap: nowrap;
         background-color: $white;
-        right: 5px;
         margin-bottom: 5px;
         height: auto;
-        width: 150px;
         border-radius: $border-radius;
     }
+
     .page__list {
         display: flex;
         align-items: center;
         list-style: none;
-        margin: 0;
-    }
-    
-    .page__item {
-        margin: 5px;
+        margin: 0 auto;
         cursor: pointer;
+    }
+
+    .page__item {
         font-size: large;
         font-weight: bold;
-        color: $btn-color-dark;
-    }
-    
-    .page__item {
         padding: 5px 10px;
         display: inline-block;
         text-decoration: none;
         color: $detail-color;
-        transition: $detail-color 0.3s ease;
-        margin: 0 2px; /* Dodane marginesy */
         &--active { 
             color: $btn-color-dark;
             text-decoration: underline;
         }
     }
-    
-    
+
     .page__link:hover {
         background-color: #ddd;
     }

@@ -1,3 +1,6 @@
+console.log("Plik index.js został wczytany.");
+
+
 //przejście z bannera do about
 const btn = document.querySelector('.banner__btn--large');
 const aboutSection = document.querySelector('.about');
@@ -5,28 +8,30 @@ const aboutSection = document.querySelector('.about');
 document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function(event) {
                 aboutSection.scrollIntoView({ behavior: 'smooth' });
+                console.log("kliknięcie btn baneru");
         });
 });
-//kliknięcie search
-const searchInput = document.querySelector('.search__input');
-const searchButton = document.querySelector('.search__btn');
 
-// Kliknięcie poza obszarem inputu i buttona
-document.addEventListener('click', function(event) {
-        if (event.target !== searchInput && event.target !== searchButton) {
-                searchInput.style.display = 'none';
-        }
-});
+// //kliknięcie search
+// const searchInput = document.querySelector('.search__input');
+// const searchButton = document.querySelector('.search__btn');
 
-searchButton.addEventListener('click', function(event) {
-        event.stopPropagation(); // wyświetlanie inputu w sposób ciagły
+// // Kliknięcie poza obszarem inputu i buttona
+// document.addEventListener('click', function(event) {
+//         if (event.target !== searchInput && event.target !== searchButton) {
+//                 searchInput.style.display = 'none';
+//         }
+// });
 
-        if (searchInput.style.display === 'none') {
-                searchInput.style.display = 'inline-block';
-        } else {
-                searchInput.style.display = 'none';
-        }
-});
+// searchButton.addEventListener('click', function(event) {
+//         event.stopPropagation(); // wyświetlanie inputu w sposób ciagły
+
+//         if (searchInput.style.display === 'none') {
+//                 searchInput.style.display = 'inline-block';
+//         } else {
+//                 searchInput.style.display = 'none';
+//         }
+// });
 
 // //wyświetlanie text o about
 const button = document.querySelector('.about__btn--italic');
@@ -68,13 +73,14 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
         .then(response => response.json())
         .then(data => {
                 const products = data.products;
-                const shopCardContainer = document.querySelector('.shop__card');
+                const shopCardContainer = document.querySelector('.shop__products');
                 const perPageSelect = document.getElementById('perPageSelect');
                 const sortSelect = document.getElementById('sortSelect');
                 const prevButton = document.querySelector('.prev-btn');
                 const nextButton = document.querySelector('.next-btn');
                 const pageList = document.querySelector('.page__list');
-                
+                const productCardTemplate = document.querySelector('.product-card-template');
+
                 let currentPage = 1;
                 let productsPerPage = parseInt(perPageSelect.value);
 
@@ -92,38 +98,23 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
 
                 for (let i = startIdx; i < endIdx && i < sortedProducts.length; i++) {
                         const product = sortedProducts[i];
-                        const productCard = document.createElement('div');
-                        productCard.classList.add('product-card');
+                        const productCardClone = productCardTemplate.cloneNode(true); // Clone the template
 
-                        // Generowanie zawartości karty produktu
-                        const productName = document.createElement('h3');
-                        productName.textContent = product.name;
+                        // Wstawianie danych z JSON do klonowanej karty
+                        productCardClone.querySelector('.product-name').textContent = product.name;
+                        productCardClone.querySelector('.product-image').src = product.imgSrc;
+                        productCardClone.querySelector('.product-image').alt = product.name;
+                        productCardClone.querySelector('.product-price').textContent = 'Cena: ' + product.price + ' PLN';
+                        // productCardClone.querySelector('.product-availability').textContent = product.instock > 0 ? "Dostępna" : "Niedostępna";
                         
-                        const productImage = document.createElement('img');
-                        productImage.src = product.imgSrc;
-                        productImage.alt = product.name;
                         
-                        const productPrice = document.createElement('p');
-                        productPrice.textContent = 'Cena: ' + product.price + ' PLN';
-                        productPrice.classList.add('product-price');
-                        
-                        const productAvailability = document.createElement('p');
-                        productAvailability.textContent = product.instock > 0 ? "Dostępna" : "Niedostępna";
-                        productAvailability.classList.add('product-availability');
-                        productAvailability.classList.add(product.instock > 0 ? 'available' : 'unavailable');
+                        const availabilityElement = productCardClone.querySelector('.product-availability');
+                        availabilityElement.textContent = product.instock > 0 ? "Dostępna" : "Niedostępna";
+                        availabilityElement.classList.add(product.instock > 0 ? "available" : "unavailable");
 
-                        const productButton = document.createElement('button');
-                        productButton.textContent = "KUP TERAZ";
-
-                        // Dodawanie elementów do karty produktu
-                        productCard.appendChild(productName);
-                        productCard.appendChild(productImage);
-                        productCard.appendChild(productPrice);
-                        productCard.appendChild(productAvailability);
-                        productCard.appendChild(productButton);
-
-                        // Dodawanie karty produktu do kontenera
-                        shopCardContainer.appendChild(productCard);
+                        // Dodawanie klonowanej karty do kontenera
+                        shopCardContainer.appendChild(productCardClone);
+                        productCardClone.style.display = 'block'; // Pokaż klon
                 }
                 }
 
@@ -182,6 +173,7 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
                         displayProducts((currentPage - 1) * productsPerPage, currentPage * productsPerPage, sortSelect.value);
                         updatePaginationButtons();
                         updatePageButtons();
+                        // console.log("kliknięcie btn prev");
                 }
                 });
 
@@ -191,6 +183,7 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
                         displayProducts((currentPage - 1) * productsPerPage, currentPage * productsPerPage, sortSelect.value);
                         updatePaginationButtons();
                         updatePageButtons();
+                        // console.log("kliknięcie btn next");
                 }
                 });
 
@@ -198,6 +191,55 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
                 displayProducts(0, productsPerPage, sortSelect.value);
                 updatePaginationButtons();
                 createPageButtons();
+
+               // Pobierz wszystkie przyciski "KUP TERAZ"
+                const buyNowButtons = document.querySelectorAll('.product-button');
+                // Deklaracja zmiennej do przechowywania liczby przedmiotów w koszyku
+                let cartItemCount = 0;
+
+
+                // Dodaj obsługę kliknięcia na każdy przycisk "KUP TERAZ"
+                buyNowButtons.forEach(button => {
+                        button.addEventListener('click', event => {
+                                const clickedButton = event.target;
+                                const productCard = clickedButton.closest('.product-card-template');
+                                const productName = productCard.querySelector('.product-name').textContent;
+                        
+                                // Znajdź produkt w danych JSON na podstawie nazwy
+                                const product = products.find(p => p.name === productName);
+                        
+                                if (product) {
+                                        addToCart(product);
+                                } else {
+                                        alert(`Produkt "${productName}" nie został znaleziony.`);
+                                }
+                        });
+                });
+                
+
+                // Funkcja do obsługi dodawania produktu do koszyka
+                function addToCart(product) {
+                        // Sprawdź czy produkt jest dostępny
+                        if (product.instock > 0) {
+                                cartItemCount++;
+                                localStorage.setItem('cartItemCount', cartItemCount.toString());
+                                updateCartItemCount(); // Aktualizacja liczby przedmiotów w koszyku
+                                alert(`Dodano produkt "${product.name}" do koszyka.`);
+                        } else {
+                                alert(`Przepraszamy, produkt "${product.name}" jest obecnie niedostępny. Prosimy o kontakt w celu uzyskania informacji o dostępności.`);
+                        }
+                }
+
+                // Funkcja do aktualizacji liczby przedmiotów w koszyku
+                function updateCartItemCount() {
+                        const cartItemCountElement = document.querySelector('.cart-item-count');
+                        cartItemCountElement.textContent = cartItemCount;
+                }
+
+                // Aktualizacja liczby przedmiotów w koszyku na starcie strony
+                updateCartItemCount();
+
+                
         })
         .catch(error => {
                 console.error('Wystąpił błąd podczas pobierania danych z pliku products.json:', error);
