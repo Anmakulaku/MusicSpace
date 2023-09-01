@@ -7,7 +7,7 @@
         "name": "Fender FSR CD-60 Dreadnought, WF, Cherry",
         "price": 810,
         "imgSrc": "/images/Fender_FSR_CD-60.jpg",
-        "instock": "20"
+        "instock": 20
         },
     {
         "id": "1",
@@ -16,7 +16,7 @@
         "name": "Fender FSR CD-60S Dreadnought, WF, Exotic Flame Maple",
         "price": 1120,
         "imgSrc": "/images/Fender_FSR_CD-60S.jpg",
-        "instock": "30"
+        "instock": 30
         },
     {
         "id": "2",
@@ -25,7 +25,7 @@
         "name": "Baton Rouge X11LS/D",
         "price": 920,
         "imgSrc": "/images/Baton_Rouge_X11LS-D.jpg",
-        "instock": "15"
+        "instock": 15
         },
     {
         "id": "3",
@@ -34,7 +34,7 @@
         "name": "Baton Rouge X11LS/F-AB-12",
         "price": 890,
         "imgSrc": "/images/Baton_Rouge_X11LS-F-AB-12.jpg",
-        "instock": "0"
+        "instock": 0
         },
     {
         "id": "4",
@@ -43,7 +43,7 @@
         "name": "Randon RGI 10VT CE",
         "price": 1390,
         "imgSrc": "/images/Randon_RGI_10VT_CE.jpg",
-        "instock": "2"
+        "instock": 2
         },
     {
         "id": "5",
@@ -52,7 +52,7 @@
         "name": "Randon RGI 01",
         "price": 720,
         "imgSrc": "/images/Randon_RGI_01.jpg",
-        "instock": "7"
+        "instock": 7
         },
     {
         "id": "6",
@@ -61,7 +61,7 @@
         "name": "Fender Redondo Mini WN NAT",
         "price": 820,
         "imgSrc": "/images/Fender Redondo_Mini_WN_NAT.jpg",
-        "instock": "0"
+        "instock": 0
         },
     {
         "id": "7",
@@ -70,7 +70,7 @@
         "name": "Ibanez AW54CE-OPN",
         "price": 1850,
         "imgSrc": "/images/Ibanez_AW54CE-OPN.jpg",
-        "instock": "2"
+        "instock": 2
         },
     {
         "id": "8",
@@ -79,7 +79,7 @@
         "name": "Ibanez PF1512ECE NT",
         "price": 1600,
         "imgSrc": "/images/Ibanez_PF1512ECE_NT.jpg",
-        "instock": "3"
+        "instock": 3
         },
     {
         "id": "9",
@@ -88,7 +88,7 @@
         "name": "Baton Rouge L1 5S/D",
         "price": 1020,
         "imgSrc": "/images/Baton Rouge_L1_5S_D.jpg",
-        "instock": "6"
+        "instock": 6
         },
     {
         "id": "10",
@@ -97,7 +97,7 @@
         "name": "Takamine GD10-NS LH",
         "price": 900,
         "imgSrc": "/images/Takamine_GD10-NS_LH.jpg",
-        "instock": "4"
+        "instock": 4
         }
 ]
 }
