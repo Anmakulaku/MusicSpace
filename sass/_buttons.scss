@@ -83,3 +83,19 @@
         color: $white;
     }
 }
+.modal-btn{
+    @include setDimensions(200px, 40px, 300px);
+    margin: 0 20px;
+    &:hover{
+        background-color: rgba($btn-color-dark, 0.8);
+        border: 2px solid rgba($btn-color-dark, 0.8);
+        color: $white;
+    }
+}
+#continueShoppingBtn{
+    &:hover{
+        border: 2px solid rgba($btn-color-dark, 0.5);
+        color: $btn-color-dark;
+        background-color: $bg-color;
+    }
+}

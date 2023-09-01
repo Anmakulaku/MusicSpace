@@ -194,6 +194,7 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
 
                // Pobierz wszystkie przyciski "KUP TERAZ"
                 const buyNowButtons = document.querySelectorAll('.product-button');
+                console.log(buyNowButtons);
                 // Deklaracja zmiennej do przechowywania liczby przedmiotów w koszyku
                 let cartItemCount = 0;
 
@@ -219,16 +220,37 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
 
                 // Funkcja do obsługi dodawania produktu do koszyka
                 function addToCart(product) {
+                        const modalMessage = document.getElementById('modalMessage');
+                        const goToCartBtn = document.getElementById('goToCartBtn');
+
                         // Sprawdź czy produkt jest dostępny
                         if (product.instock > 0) {
                                 cartItemCount++;
                                 localStorage.setItem('cartItemCount', cartItemCount.toString());
                                 updateCartItemCount(); // Aktualizacja liczby przedmiotów w koszyku
-                                alert(`Dodano produkt "${product.name}" do koszyka.`);
+                                // alert(`Dodano produkt "${product.name}" do koszyka.`);
+                                modalMessage.textContent = `Dodałeś do koszyka: ${product.name}.`;
+                                goToCartBtn.disabled = false; // Odblokuj przycisk "Idź do koszyka"
                         } else {
-                                alert(`Przepraszamy, produkt "${product.name}" jest obecnie niedostępny. Prosimy o kontakt w celu uzyskania informacji o dostępności.`);
+                                modalMessage.textContent = `Przepraszamy, produkt "${product.name}" jest obecnie niedostępny.`;
+                                goToCartBtn.disabled = true; // Zablokuj przycisk "Idź do koszyka"
+                                // alert(`Przepraszamy, produkt "${product.name}" jest obecnie niedostępny. Prosimy o kontakt w celu uzyskania informacji o dostępności.`);
+                        }
+                        // Wyświetl modal
+                        const modal = document.getElementById('myModal');
+                        modal.style.display = 'block';
+
+                        // Dodaj obsługę przycisku "Kontynuuj zakupy" w modalu
+                        const continueShoppingBtn = document.getElementById('continueShoppingBtn');
+                        continueShoppingBtn.addEventListener('click', closeModal);
+
+                        function closeModal() {
+                        // Ukryj modal po kliknięciu przycisku "Kontynuuj zakupy"
+                        const modal = document.getElementById('myModal');
+                        modal.style.display = 'none';
                         }
                 }
+                
 
                 // Funkcja do aktualizacji liczby przedmiotów w koszyku
                 function updateCartItemCount() {
@@ -239,7 +261,6 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
                 // Aktualizacja liczby przedmiotów w koszyku na starcie strony
                 updateCartItemCount();
 
-                
         })
         .catch(error => {
                 console.error('Wystąpił błąd podczas pobierania danych z pliku products.json:', error);
