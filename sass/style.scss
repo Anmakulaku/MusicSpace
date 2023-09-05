@@ -96,6 +96,40 @@ ul {
         height: 40px;
         margin: 20px;
     }
+    
+    &__cart {
+        position: relative;
+        display: inline-block;
+    }
+    
+    &__counter {
+        position: relative;
+        text-decoration: none;
+        color: $font-color-dark;
+        @include setFont("Segoe UI", convertPxToRem(18), $font-weight: 700);
+        cursor: pointer;
+        &:hover {
+            color: $font-color-medium;
+        }
+    }
+    
+    &__cartItemCount {
+        position: absolute;
+        bottom: 50px; 
+        right: 5px;
+        background-color: $red;
+        color: $font-color;
+        border-radius: 50%;
+        width: 24px; 
+        height: 24px;
+        text-align: center;
+        font-size: 16px; 
+        font-weight: bold;
+        line-height: 24px;
+    }
+    
+    
+    
     .search{
         position: relative; 
         @include setFlex(row);

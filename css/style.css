@@ -247,6 +247,37 @@ ul {
   height: 40px;
   margin: 20px;
 }
+.menu__cart {
+  position: relative;
+  display: inline-block;
+}
+.menu__counter {
+  position: relative;
+  text-decoration: none;
+  color: #424242;
+  font-family: "Segoe UI";
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.menu__counter:hover {
+  color: #636363;
+}
+.menu__cartItemCount {
+  position: absolute;
+  bottom: 50px;
+  right: 5px;
+  background-color: #FF0000;
+  color: #E0E0E0;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+}
 .menu .search {
   position: relative;
   display: flex;

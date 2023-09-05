@@ -199,24 +199,24 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
                 let cartItemCount = 0;
 
 
-                // Dodaj obsługę kliknięcia na każdy przycisk "KUP TERAZ"
-                buyNowButtons.forEach(button => {
-                        button.addEventListener('click', event => {
-                                const clickedButton = event.target;
-                                const productCard = clickedButton.closest('.product-card-template');
-                                const productName = productCard.querySelector('.product-name').textContent;
-                        
-                                // Znajdź produkt w danych JSON na podstawie nazwy
-                                const product = products.find(p => p.name === productName);
-                        
-                                if (product) {
-                                        addToCart(product);
-                                } else {
-                                        alert(`Produkt "${productName}" nie został znaleziony.`);
-                                }
-                        });
+               // Przypisz event listener do kontenera przycisków "KUP TERAZ" (delegowanie zdarzenia)
+                shopCardContainer.addEventListener('click', function(event) {
+                if (event.target.classList.contains('product-button')) {
+                        const clickedButton = event.target;
+                        const productCard = clickedButton.closest('.product-card-template');
+                        const productName = productCard.querySelector('.product-name').textContent;
+
+                        // Znajdź produkt w danych JSON na podstawie nazwy
+                        const product = products.find(p => p.name === productName);
+
+                        if (product) {
+                        addToCart(product);
+                        } else {
+                        alert(`Produkt "${productName}" nie został znaleziony.`);
+                        }
+                }
                 });
-                
+
 
                 // Funkcja do obsługi dodawania produktu do koszyka
                 function addToCart(product) {
@@ -254,7 +254,7 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
 
                 // Funkcja do aktualizacji liczby przedmiotów w koszyku
                 function updateCartItemCount() {
-                        const cartItemCountElement = document.querySelector('.cart-item-count');
+                        const cartItemCountElement = document.querySelector('.menu__cartItemCount');
                         cartItemCountElement.textContent = cartItemCount;
                 }
 
