@@ -128,7 +128,7 @@
 .page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: justify;
   max-width: 1500px;
@@ -171,6 +171,7 @@ ul {
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 5px;
+  text-transform: uppercase;
 }
 .banner__title--large {
   font-size: 3.75rem;
@@ -179,6 +180,25 @@ ul {
 .banner__title--medium {
   font-size: 2.5rem;
   margin: 100px 0 0 250px;
+}
+.banner__titleCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #E0E0E0;
+  font-family: "Cinzel";
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+.banner__titleCard--large {
+  font-size: 60px;
+  margin: 30px 0 0 200px;
+}
+.banner__titleCard--medium {
+  font-size: 40px;
+  margin: 120px 0 0 450px;
 }
 .banner .overlay {
   position: absolute;
@@ -779,4 +799,18 @@ ul {
   font-size: 20px;
   font-weight: 600;
   padding: 20px;
+}
+
+.cart {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: justify;
+}
+.cart__title {
+  font-family: "Segoe UI";
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0px;
 }/*# sourceMappingURL=style.css.map */

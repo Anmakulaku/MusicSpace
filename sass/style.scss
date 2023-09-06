@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 .page{
-    @include setFlex(column);
+    @include setFlex(column, $justify-content: flex-start);
     max-width: 1500px;
     margin: 0 auto 0 auto; 
     min-height: 100vh;
@@ -36,6 +36,7 @@ ul {
         left: 0;
         color: $font-color;
         @include setFont("Cinzel", $font-weight: 500, $letter-spacing:5px);
+        text-transform: uppercase;
 
         &--large{
             font-size: convertPxToRem(60);
@@ -44,6 +45,23 @@ ul {
         &--medium{
             font-size: convertPxToRem(40);
             margin: 100px 0 0 250px;
+        }
+    }
+    &__titleCard{
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: $font-color;
+        @include setFont("Cinzel", $font-weight: 500, $letter-spacing:5px);
+        text-transform: uppercase;
+
+        &--large{
+            font-size: 60px;
+            margin: 30px 0 0 200px;
+        }
+        &--medium{
+            font-size: 40px;
+            margin: 120px 0 0 450px;
         }
     }
     .overlay{
@@ -489,4 +507,10 @@ ul {
     padding: 20px;
 }
 
-
+.cart{
+    @include setFlex(row, $align-items: center, $justify-content: flex-start);
+    &__title{
+        
+        @include setFont("Segoe UI", 30px, 700, 0px);
+}
+}
