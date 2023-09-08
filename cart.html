@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
     <title>Music Space</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,13 +19,27 @@
     </header>
     <div class="cart">
         <p class="cart__title">Koszyk</p>
-        <div class="cart_items">
+        <div class="cart__contener">
+            <div class="cart__items" id="cartItem">
+                <template id="cart__template" class="cart__template">
+                    <div class="cart__singleItem" data-id="">
+                        <img class="product-image" src="" alt="">
+                        <h3 class="product-name"></h3>
+                        <p class="product-price"></p>
+                        <div class="cart__itemQuantity">
+                            <button class="btn-minus">-</button>
+                            <p class="counter">0</p>
+                            <button class="btn-plus">+</button>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="cart__summary">
 
+            </div>
         </div>
-        <div class="cart__summary">
-
-        </div>
-        <script src="/js/index.js"></script>
+        <!-- <script src="/js/index.js"></script> -->
+        <script src="/js/cart.js"></script>
     </div>
 </body>
 </html>

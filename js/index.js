@@ -60,6 +60,7 @@ const menuItems = document.querySelectorAll('.menu__item');
 menuItems.forEach(item => {
         item.addEventListener('click', () => {
         menuItems.forEach(item => {
+                
         // Usuwanie klasy "active" do klikniętego elementu menu
         item.classList.remove('menu__item--active');
         });   
@@ -85,106 +86,106 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
                 let productsPerPage = parseInt(perPageSelect.value);
 
                 function displayProducts(startIdx, endIdx, sortBy) {
-                shopCardContainer.innerHTML = ''; // Clear the container
+                        shopCardContainer.innerHTML = ''; // Clear the container
 
-                let sortedProducts = [...products];
+                        let sortedProducts = [...products];
 
-                if (sortBy === 'priceLow') {
-                        sortedProducts.sort((a, b) => a.price - b.price);
-                } else if (sortBy === 'priceHigh') {
-                        sortedProducts.sort((a, b) => b.price - a.price);
-                } else if (sortBy === 'default') { // No sorting 
-                }
+                        if (sortBy === 'priceLow') {
+                                sortedProducts.sort((a, b) => a.price - b.price);
+                        } else if (sortBy === 'priceHigh') {
+                                sortedProducts.sort((a, b) => b.price - a.price);
+                        } else if (sortBy === 'default') { // No sorting
+                        }
 
-                for (let i = startIdx; i < endIdx && i < sortedProducts.length; i++) {
-                        const product = sortedProducts[i];
-                        const productCardClone = productCardTemplate.cloneNode(true); // Clone the template
+                        for (let i = startIdx; i < endIdx && i < sortedProducts.length; i++) {
+                                const product = sortedProducts[i];
+                                const productCardClone = productCardTemplate.cloneNode(true); // Clone the template
 
-                        // Wstawianie danych z JSON do klonowanej karty
-                        productCardClone.querySelector('.product-name').textContent = product.name;
-                        productCardClone.querySelector('.product-image').src = product.imgSrc;
-                        productCardClone.querySelector('.product-image').alt = product.name;
-                        productCardClone.querySelector('.product-price').textContent = 'Cena: ' + product.price + ' PLN';
-                        // productCardClone.querySelector('.product-availability').textContent = product.instock > 0 ? "Dostępna" : "Niedostępna";
-                        
-                        
-                        const availabilityElement = productCardClone.querySelector('.product-availability');
-                        availabilityElement.textContent = product.instock > 0 ? "Dostępna" : "Niedostępna";
-                        availabilityElement.classList.add(product.instock > 0 ? "available" : "unavailable");
+                                // Wstawianie danych z JSON do klonowanej karty
+                                productCardClone.querySelector('.product-name').textContent = product.name;
+                                productCardClone.querySelector('.product-image').src = product.imgSrc;
+                                productCardClone.querySelector('.product-image').alt = product.name;
+                                productCardClone.querySelector('.product-price').textContent = 'Cena: ' + product.price + ' PLN';
+                                // productCardClone.querySelector('.product-availability').textContent = product.instock > 0 ? "Dostępna" : "Niedostępna";
+                                
+                                
+                                const availabilityElement = productCardClone.querySelector('.product-availability');
+                                availabilityElement.textContent = product.instock > 0 ? "Dostępna" : "Niedostępna";
+                                availabilityElement.classList.add(product.instock > 0 ? "available" : "unavailable");
 
-                        // Dodawanie klonowanej karty do kontenera
-                        shopCardContainer.appendChild(productCardClone);
-                        productCardClone.style.display = 'block'; // Pokaż klon
-                }
+                                // Dodawanie klonowanej karty do kontenera
+                                shopCardContainer.appendChild(productCardClone);
+                                productCardClone.style.display = 'block'; // Pokaż klon
+                        }
                 }
 
                 function updatePaginationButtons() {
-                prevButton.disabled = currentPage === 1;
-                nextButton.disabled = currentPage === Math.ceil(products.length / productsPerPage);
+                        prevButton.disabled = currentPage === 1;
+                        nextButton.disabled = currentPage === Math.ceil(products.length / productsPerPage);
                 }
 
                 function createPageButtons() {
-                pageList.innerHTML = '';
+                        pageList.innerHTML = '';
 
-                const totalPages = Math.ceil(products.length / productsPerPage);
+                        const totalPages = Math.ceil(products.length / productsPerPage);
 
-                for (let i = 1; i <= totalPages; i++) {
-                        const pageItem = document.createElement('li');
-                        pageItem.textContent = i;
-                        pageItem.classList.add('page__item');
-                        if (i === currentPage) {
-                        pageItem.classList.add('page__item--active');
+                        for (let i = 1; i <= totalPages; i++) {
+                                const pageItem = document.createElement('li');
+                                pageItem.textContent = i;
+                                pageItem.classList.add('page__item');
+                                if (i === currentPage) {
+                                pageItem.classList.add('page__item--active');
+                                }
+                                pageList.appendChild(pageItem);
+
+                                pageItem.addEventListener('click', () => {
+                                currentPage = i;
+                                updatePaginationButtons();
+                                displayProducts((currentPage - 1) * productsPerPage, currentPage * productsPerPage, sortSelect.value);
+                                updatePageButtons();
+                                });
                         }
-                        pageList.appendChild(pageItem);
-
-                        pageItem.addEventListener('click', () => {
-                        currentPage = i;
-                        updatePaginationButtons();
-                        displayProducts((currentPage - 1) * productsPerPage, currentPage * productsPerPage, sortSelect.value);
-                        updatePageButtons();
-                        });
-                }
                 }
 
                 function updatePageButtons() {
-                const pageItems = document.querySelectorAll('.page__item');
-                pageItems.forEach(item => item.classList.remove('page__item--active'));
-                pageItems[currentPage - 1].classList.add('page__item--active');
+                        const pageItems = document.querySelectorAll('.page__item');
+                        pageItems.forEach(item => item.classList.remove('page__item--active'));
+                        pageItems[currentPage - 1].classList.add('page__item--active');
                 }
 
                 perPageSelect.addEventListener('change', () => {
-                currentPage = 1; // Reset to first page when changing products per page
-                productsPerPage = parseInt(perPageSelect.value);
-                displayProducts(0, productsPerPage, sortSelect.value);
-                updatePaginationButtons();
-                createPageButtons();
+                        currentPage = 1; // Reset to first page when changing products per page
+                        productsPerPage = parseInt(perPageSelect.value);
+                        displayProducts(0, productsPerPage, sortSelect.value);
+                        updatePaginationButtons();
+                        createPageButtons();
                 });
 
                 sortSelect.addEventListener('change', () => {
-                currentPage = 1; // Reset to first page when changing sorting
-                displayProducts(0, productsPerPage, sortSelect.value);
-                updatePaginationButtons();
-                createPageButtons();
+                        currentPage = 1; // Reset to first page when changing sorting
+                        displayProducts(0, productsPerPage, sortSelect.value);
+                        updatePaginationButtons();
+                        createPageButtons();
                 });
 
                 prevButton.addEventListener('click', () => {
-                if (currentPage > 1) {
-                        currentPage--;
-                        displayProducts((currentPage - 1) * productsPerPage, currentPage * productsPerPage, sortSelect.value);
-                        updatePaginationButtons();
-                        updatePageButtons();
-                        // console.log("kliknięcie btn prev");
-                }
+                        if (currentPage > 1) {
+                                currentPage--;
+                                displayProducts((currentPage - 1) * productsPerPage, currentPage * productsPerPage, sortSelect.value);
+                                updatePaginationButtons();
+                                updatePageButtons();
+                                // console.log("kliknięcie btn prev");
+                        }
                 });
 
                 nextButton.addEventListener('click', () => {
-                if (currentPage < Math.ceil(products.length / productsPerPage)) {
-                        currentPage++;
-                        displayProducts((currentPage - 1) * productsPerPage, currentPage * productsPerPage, sortSelect.value);
-                        updatePaginationButtons();
-                        updatePageButtons();
-                        // console.log("kliknięcie btn next");
-                }
+                        if (currentPage < Math.ceil(products.length / productsPerPage)) {
+                                currentPage++;
+                                displayProducts((currentPage - 1) * productsPerPage, currentPage * productsPerPage, sortSelect.value);
+                                updatePaginationButtons();
+                                updatePageButtons();
+                                // console.log("kliknięcie btn next");
+                        }
                 });
 
                 // Initial display
@@ -201,20 +202,20 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
 
                // Przypisz event listener do kontenera przycisków "KUP TERAZ" (delegowanie zdarzenia)
                 shopCardContainer.addEventListener('click', function(event) {
-                if (event.target.classList.contains('product-button')) {
-                        const clickedButton = event.target;
-                        const productCard = clickedButton.closest('.product-card-template');
-                        const productName = productCard.querySelector('.product-name').textContent;
+                        if (event.target.classList.contains('product-button')) {
+                                const clickedButton = event.target;
+                                const productCard = clickedButton.closest('.product-card-template');
+                                const productName = productCard.querySelector('.product-name').textContent;
 
-                        // Znajdź produkt w danych JSON na podstawie nazwy
-                        const product = products.find(p => p.name === productName);
+                                // Znajdź produkt w danych JSON na podstawie nazwy
+                                const product = products.find(p => p.name === productName);
 
-                        if (product) {
-                        addToCart(product);
-                        } else {
-                        alert(`Produkt "${productName}" nie został znaleziony.`);
+                                if (product) {
+                                        addToCart(product);
+                                } else {
+                                        alert(`Produkt "${productName}" nie został znaleziony.`);
+                                }
                         }
-                }
                 });
 
 
@@ -227,6 +228,12 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
                         if (product.instock > 0) {
                                 cartItemCount++;
                                 localStorage.setItem('cartItemCount', cartItemCount.toString());
+
+                                // Dodaj produkt do koszyka w pamięci lokalnej
+                                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                                cart.push(product);
+                                localStorage.setItem('cart', JSON.stringify(cart));
+
                                 updateCartItemCount(); // Aktualizacja liczby przedmiotów w koszyku
                                 // alert(`Dodano produkt "${product.name}" do koszyka.`);
                                 modalMessage.textContent = `Dodałeś do koszyka: ${product.name}.`;
@@ -245,9 +252,9 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
                         continueShoppingBtn.addEventListener('click', closeModal);
 
                         function closeModal() {
-                        // Ukryj modal po kliknięciu przycisku "Kontynuuj zakupy"
-                        const modal = document.getElementById('myModal');
-                        modal.style.display = 'none';
+                                // Ukryj modal po kliknięciu przycisku "Kontynuuj zakupy"
+                                const modal = document.getElementById('myModal');
+                                modal.style.display = 'none';
                         }
                 }
                 
@@ -260,6 +267,12 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
 
                 // Aktualizacja liczby przedmiotów w koszyku na starcie strony
                 updateCartItemCount();
+                
+                // Przycisk "Przejdź do koszyka" - przekierowanie na stronę card.html
+                const goToCartBtn = document.getElementById('goToCartBtn');
+                goToCartBtn.addEventListener('click', function() {
+                        window.location.href = 'card.html'; // Przekieruj na stronę card.html
+                });
 
         })
         .catch(error => {

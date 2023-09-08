@@ -99,3 +99,14 @@
         background-color: $bg-color;
     }
 }
+.btn-minus,
+.btn-plus {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: lighter;
+    color: rgb(33, 33, 33);
+    cursor: pointer;
+}
