@@ -105,8 +105,34 @@
     height: 30px;
     border: none;
     background-color: transparent;
-    font-size: 20px;
-    font-weight: lighter;
-    color: rgb(33, 33, 33);
+    font-size: 25px;
+    font-weight: 500;
+    color: $btn-color-dark;
+    cursor: pointer;
+}
+
+.back-btn{
+    @include setFont("Segoe UI", $font-weight: 700, $letter-spacing: 0px);
+    @include setDimensions(130px, 40px, 200px);
+    border-radius: $border-radius;
+    background-color: $btn-color-dark;
+    color: $white;
+    border: none;
+    margin: 0 auto 20px auto;
+    box-shadow: none;
+    cursor: pointer;
+    &:hover {
+        background-color: $bg-color;
+        border: 2px solid $btn-color-dark;
+        color: $btn-color-dark;
+    }
+}
+
+.btn-remove{
+    background-color: $white;
+    text-decoration: none;
+    border: none;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
 }

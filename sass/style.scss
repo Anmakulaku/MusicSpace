@@ -528,6 +528,11 @@ ul {
         padding: 20px;
         
     }
+    &__icon{
+        fill: $btn-color-dark;
+        height: 20px;
+        margin: 20px;
+    }
     &__singleItem{
         @include setFlex(row, $justify-content: space-between);
         @include setDimensions(100%, auto);
@@ -536,34 +541,39 @@ ul {
         background-color: $white;
         border-radius: $border-radius;
     
-    .product-image{
-        @include setDimensions(30%, auto);
-        object-fit: cover;
-        border-radius: $border-radius;
-    }
-    .product-name{
-        @include setDimensions(20%, auto);
-        object-fit: cover;
-        margin: 10px;
-    }
-    .product-price{
-        @include setDimensions(30%, auto);
-        object-fit: cover;
-        margin: 10px;
-        text-align: center;
-        font-weight: 700;
+        .product-image{
+            @include setDimensions(30%, auto);
+            object-fit: cover;
+            border-radius: $border-radius;
+        }
+        .product-name{
+            @include setFont("Segoe UI", 18px, 500, 0px);
+            @include setDimensions(20%, auto);
+            object-fit: cover;
+            margin: 10px;
+            border: 2px solid $btn-color-dark;
+            border-radius: $border-radius;
+            padding: 10px 20px;
+        }
+        .product-price{
+            @include setFont("Segoe UI", 30px, 700, 0px);
+            @include setDimensions(30%, auto);
+            object-fit: cover;
+            margin: 10px;
+            text-align: center;
+            font-weight: 700;
+            font-size: larger;
 
+        }
     }
     &__itemQuantity{
         @include setFlex(row, $align-items: center, $justify-content: space-between);
-        @include setDimensions(80px, auto, none,  40px);
+        @include setDimensions(100px, auto, none,  40px);
         margin: 10px;
-        border: 2px solid $detail-color;
-        border-radius: $border-radius;
+        color: $btn-color-dark;
     }
     &__counter{
         color: black;
     }
-}
 }
 

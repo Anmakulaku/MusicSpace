@@ -1,6 +1,5 @@
 console.log("Plik index.js został wczytany.");
 
-
 //przejście z bannera do about
 const btn = document.querySelector('.banner__btn--large');
 const aboutSection = document.querySelector('.about');
@@ -69,6 +68,7 @@ menuItems.forEach(item => {
         item.classList.add('menu__item--active');
         });
 });
+
 
 fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/products.json')
         .then(response => response.json())
@@ -192,12 +192,13 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
                 displayProducts(0, productsPerPage, sortSelect.value);
                 updatePaginationButtons();
                 createPageButtons();
-
+                
                // Pobierz wszystkie przyciski "KUP TERAZ"
                 const buyNowButtons = document.querySelectorAll('.product-button');
                 console.log(buyNowButtons);
-                // Deklaracja zmiennej do przechowywania liczby przedmiotów w koszyku
-                let cartItemCount = 0;
+                // Aktualizacja liczby przedmiotów w koszyku na starcie strony
+                let cartItemCount = parseInt(localStorage.getItem('cartItemCount')) || 0;
+                updateCartItemCount();
 
 
                // Przypisz event listener do kontenera przycisków "KUP TERAZ" (delegowanie zdarzenia)
@@ -256,6 +257,8 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
                                 const modal = document.getElementById('myModal');
                                 modal.style.display = 'none';
                         }
+                        // Aktualizacja liczby przedmiotów w koszyku na starcie strony
+                        updateCartItemCount();
                 }
                 
 
@@ -263,15 +266,13 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
                 function updateCartItemCount() {
                         const cartItemCountElement = document.querySelector('.menu__cartItemCount');
                         cartItemCountElement.textContent = cartItemCount;
+                        localStorage.setItem('cartItemCount', cartItemCount.toString()); // Zapisz wartość w LocalStorage
                 }
-
-                // Aktualizacja liczby przedmiotów w koszyku na starcie strony
-                updateCartItemCount();
                 
-                // Przycisk "Przejdź do koszyka" - przekierowanie na stronę card.html
+                // Przycisk "Przejdź do koszyka" w modalu
                 const goToCartBtn = document.getElementById('goToCartBtn');
                 goToCartBtn.addEventListener('click', function() {
-                        window.location.href = 'card.html'; // Przekieruj na stronę card.html
+                        window.location.href = 'cart.html'; // Przekieruj na stronę cart.html
                 });
 
         })

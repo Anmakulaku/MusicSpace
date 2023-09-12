@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         cartContainer.innerHTML = '';
 
         // Iteruj przez produkty w koszyku i tworz elementy na podstawie szablonu
-        cart.forEach(product => {
+        cart.forEach((product, index) => {
             const productClone = cartTemplate.content.cloneNode(true);
 
             // Ustaw dane produktu w elemencie
@@ -34,13 +34,15 @@ document.addEventListener('DOMContentLoaded', function () {
             const btnPlus = productClone.querySelector('.btn-plus');
             const counter = productClone.querySelector('.counter');
 
+            product.quantity= 1;
+
             btnMinus.addEventListener('click', () => {
                 // Odejmuj 1 od ilości produktu w koszyku
                 product.quantity--;
-                if (product.quantity < 0) {
-                    product.quantity = 0;
+                if (product.quantity < 1) {
+                    product.quantity = 1;
                 }
-                // Aktualizujemy licznik
+                // Aktualizuj licznik
                 counter.textContent = product.quantity;
                 updateCart();
             });
@@ -56,9 +58,23 @@ document.addEventListener('DOMContentLoaded', function () {
             // Ustaw licznik produktu
             counter.textContent = product.quantity;
 
+            // Dodaj obsługę przycisku "Usuń"
+            const btnRemove = productClone.querySelector('.btn-remove');
+            btnRemove.addEventListener('click', () => {
+                // Usuń pozycję z koszyka na podstawie jej indeksu w tablicy
+                cart.splice(index, 1);
+                // Aktualizuj wyświetlanie koszyka
+                displayCart();
+                // Aktualizuj koszyk w pamięci lokalnej
+                updateCart();
+            });
+
+
             // Dodaj element produktu do koszyka
             cartContainer.appendChild(productClone);
+            
         });
+        
     }
 
     // Funkcja do aktualizacji danych w koszyku
@@ -67,6 +83,13 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('cart', JSON.stringify(cart));
     }
 
-    // Wywołuj funkcję do wyświetlania koszyka na stronie
+    // Funkcja do wyświetlania koszyka na stronie
     displayCart();
+
+    // Przycisk "Przejdź do strony głównej"
+    const backBtn = document.querySelector('.back-btn');
+    backBtn.addEventListener('click', function() {
+            window.location.href = 'index.html'; // Przekieruj na stronę index.html
+    });
+    
 });
