@@ -5,10 +5,12 @@ const btn = document.querySelector('.banner__btn--large');
 const aboutSection = document.querySelector('.about');
 
 document.addEventListener('DOMContentLoaded', function() {
-        btn.addEventListener('click', function(event) {
-                aboutSection.scrollIntoView({ behavior: 'smooth' });
-                console.log("kliknięcie btn baneru");
+        if (btn && aboutSection) {
+                btn.addEventListener('click', function(event) {
+                        aboutSection.scrollIntoView({ behavior: 'smooth' });
+                        console.log("kliknięcie btn baneru");
         });
+        }
 });
 
 // //kliknięcie search
@@ -38,20 +40,23 @@ const textWrap = document.querySelector('.about__text--wrap');
 const textLong = document.querySelector('.about__text--long');
 const aboutInfo = document.querySelector('.about__info');
 
-button.addEventListener('click', function() {
-        if (textWrap.classList.contains('about__collapsed--wrap')) {
-                textWrap.classList.remove('about__collapsed--wrap');
-                textLong.classList.remove('about__collapsed--long');
-                aboutInfo.classList.remove('about__info--expanded');
-                button.textContent = 'WIĘCEJ';
-        } else {
-                textWrap.classList.add('about__collapsed--wrap');
-                textLong.classList.add('about__collapsed--long');
-                aboutInfo.classList.add('about__info--expanded');
-                button.textContent = 'MNIEJ';
-        }
+document.addEventListener('DOMContentLoaded', function() {
+        if (button && textWrap && textLong && aboutInfo) {
+        button.addEventListener('click', function() {
+                if (textWrap.classList.contains('about__collapsed--wrap')) {
+                        textWrap.classList.remove('about__collapsed--wrap');
+                        textLong.classList.remove('about__collapsed--long');
+                        aboutInfo.classList.remove('about__info--expanded');
+                        button.textContent = 'WIĘCEJ';
+                } else {
+                        textWrap.classList.add('about__collapsed--wrap');
+                        textLong.classList.add('about__collapsed--long');
+                        aboutInfo.classList.add('about__info--expanded');
+                        button.textContent = 'MNIEJ';
+                }
+        });
+        };
 });
-
 // active
 
 const menuItems = document.querySelectorAll('.menu__item');
@@ -84,6 +89,15 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
 
                 let currentPage = 1;
                 let productsPerPage = parseInt(perPageSelect.value);
+                // Aktualizacja liczby przedmiotów w koszyku na starcie strony
+                let cartItemCount = parseInt(localStorage.getItem('cartItemCount')) || 0;
+                  // Funkcja do aktualizacji liczby przedmiotów w koszyku na stronie głównej
+                function updateCartItemCount() {
+                        const cartItemCountElement = document.querySelector('.menu__cartItemCount');
+                        const cartItemCount = parseInt(localStorage.getItem('cartItemCount')) || 0;
+                        cartItemCountElement.textContent = cartItemCount;
+                }
+                
 
                 function displayProducts(startIdx, endIdx, sortBy) {
                         shopCardContainer.innerHTML = ''; // Clear the container
@@ -196,10 +210,6 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
                // Pobierz wszystkie przyciski "KUP TERAZ"
                 const buyNowButtons = document.querySelectorAll('.product-button');
                 console.log(buyNowButtons);
-                // Aktualizacja liczby przedmiotów w koszyku na starcie strony
-                let cartItemCount = parseInt(localStorage.getItem('cartItemCount')) || 0;
-                updateCartItemCount();
-
 
                // Przypisz event listener do kontenera przycisków "KUP TERAZ" (delegowanie zdarzenia)
                 shopCardContainer.addEventListener('click', function(event) {
@@ -224,18 +234,17 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
                 function addToCart(product) {
                         const modalMessage = document.getElementById('modalMessage');
                         const goToCartBtn = document.getElementById('goToCartBtn');
-
+                
                         // Sprawdź czy produkt jest dostępny
                         if (product.instock > 0) {
                                 cartItemCount++;
                                 localStorage.setItem('cartItemCount', cartItemCount.toString());
-
+                
                                 // Dodaj produkt do koszyka w pamięci lokalnej
                                 const cart = JSON.parse(localStorage.getItem('cart')) || [];
                                 cart.push(product);
                                 localStorage.setItem('cart', JSON.stringify(cart));
-
-                                updateCartItemCount(); // Aktualizacja liczby przedmiotów w koszyku
+                                        
                                 // alert(`Dodano produkt "${product.name}" do koszyka.`);
                                 modalMessage.textContent = `Dodałeś do koszyka: ${product.name}.`;
                                 goToCartBtn.disabled = false; // Odblokuj przycisk "Idź do koszyka"
@@ -247,33 +256,27 @@ fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/feature/shop/js/p
                         // Wyświetl modal
                         const modal = document.getElementById('myModal');
                         modal.style.display = 'block';
-
+                
                         // Dodaj obsługę przycisku "Kontynuuj zakupy" w modalu
                         const continueShoppingBtn = document.getElementById('continueShoppingBtn');
                         continueShoppingBtn.addEventListener('click', closeModal);
-
+                
                         function closeModal() {
                                 // Ukryj modal po kliknięciu przycisku "Kontynuuj zakupy"
                                 const modal = document.getElementById('myModal');
                                 modal.style.display = 'none';
                         }
-                        // Aktualizacja liczby przedmiotów w koszyku na starcie strony
                         updateCartItemCount();
                 }
                 
 
-                // Funkcja do aktualizacji liczby przedmiotów w koszyku
-                function updateCartItemCount() {
-                        const cartItemCountElement = document.querySelector('.menu__cartItemCount');
-                        cartItemCountElement.textContent = cartItemCount;
-                        localStorage.setItem('cartItemCount', cartItemCount.toString()); // Zapisz wartość w LocalStorage
-                }
-                
                 // Przycisk "Przejdź do koszyka" w modalu
                 const goToCartBtn = document.getElementById('goToCartBtn');
                 goToCartBtn.addEventListener('click', function() {
                         window.location.href = 'cart.html'; // Przekieruj na stronę cart.html
                 });
+
+                updateCartItemCount();
 
         })
         .catch(error => {

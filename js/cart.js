@@ -13,7 +13,35 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         console.log("Znaleziono element o id 'card__template' na stronie.");
     }
+    // Po każdym dodaniu lub usunięciu produktu z koszyka, oblicz sumę cen
+    function calculateCartTotal() {
+        let cartTotal = 0;
 
+        // Iteruj przez produkty w koszyku i dodawaj ich ceny do sumy
+        cart.forEach((product) => {
+            cartTotal += product.price * product.quantity;
+        });
+
+        return cartTotal;
+    }
+
+    // Funkcja do aktualizacji sumy cen w koszyku
+    function updateCartTotal() {
+        const cartTotalElement = document.querySelector('.cart__summaryPrice');
+        const total = calculateCartTotal();
+
+        // Aktualizuj tekst w elemencie .cart__summaryPrice z obliczoną sumą
+        cartTotalElement.textContent = total + ' zł';
+    }
+
+    // Po dodaniu/usunięciu produktu, wywołaj funkcję aktualizującą sumę cen
+    function updateCart() {
+        // Zapisuj aktualny koszyk w pamięci lokalnej
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Aktualizuj sumę cen
+        updateCartTotal();
+    }
     // Funkcja do wyświetlania produktów w koszyku
     function displayCart() {
         // Usun istniejące elementy w koszyku
@@ -28,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
             productClone.querySelector('.product-image').src = product.imgSrc;
             productClone.querySelector('.product-image').alt = product.name;
             productClone.querySelector('.product-price').textContent = 'Cena: ' + product.price + ' PLN';
-
+            
             // Dodaj obsługę przycisków "+" i "-" do zmiany ilości produktów w koszyku
             const btnMinus = productClone.querySelector('.btn-minus');
             const btnPlus = productClone.querySelector('.btn-plus');
@@ -45,6 +73,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Aktualizuj licznik
                 counter.textContent = product.quantity;
                 updateCart();
+                // Aktualizuj sumę cen
+                updateCartTotal();
             });
 
             btnPlus.addEventListener('click', () => {
@@ -53,6 +83,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Aktualizuj licznik
                 counter.textContent = product.quantity;
                 updateCart();
+                // Aktualizuj sumę cen
+                updateCartTotal();
             });
 
             // Ustaw licznik produktu
@@ -63,19 +95,27 @@ document.addEventListener('DOMContentLoaded', function () {
             btnRemove.addEventListener('click', () => {
                 // Usuń pozycję z koszyka na podstawie jej indeksu w tablicy
                 cart.splice(index, 1);
-                // Aktualizuj wyświetlanie koszyka
-                displayCart();
                 // Aktualizuj koszyk w pamięci lokalnej
                 updateCart();
+                // // Aktualizuj liczbę przedmiotów w koszyku na stronie głównej
+                // updateCartItemCount();
+                // Aktualizuj wyświetlanie koszyka
+                displayCart();
+                
             });
-
 
             // Dodaj element produktu do koszyka
             cartContainer.appendChild(productClone);
-            
+            updateCartTotal();
         });
         
     }
+    //Nie ma dostępu do index.js
+    // function updateCartItemCount() {
+    //     const cartItemCountElement = document.querySelector('.menu__cartItemCount');
+    //     const cartItemCount = cart.reduce((total, product) => total + product.quantity, 0);
+    //     cartItemCountElement.textContent = cartItemCount;
+    // }
 
     // Funkcja do aktualizacji danych w koszyku
     function updateCart() {
@@ -83,8 +123,11 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('cart', JSON.stringify(cart));
     }
 
-    // Funkcja do wyświetlania koszyka na stronie
+    // Funkcja do wyświetlania produktów w koszyku
     displayCart();
+
+    
+
 
     // Przycisk "Przejdź do strony głównej"
     const backBtn = document.querySelector('.back-btn');

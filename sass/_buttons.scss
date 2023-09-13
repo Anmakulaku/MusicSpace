@@ -22,8 +22,8 @@
 }
 .banner__btn{
     &--large{
-        bottom: 20%;
-        right: 15%;
+        bottom: 30%;
+        right: 10%;
         transform: translate(50%, 50%);
         font-size: 20px;
         @include setDimensions(180px, 50px);
@@ -135,4 +135,21 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+.delivery-btn{
+    @include setFont("Segoe UI", $font-weight: 700, $letter-spacing: 0px);
+    @include setDimensions(130px, 40px, 200px);
+    border-radius: $border-radius;
+    background-color: $btn-color-dark;
+    color: $white;
+    border: none;
+    margin: 0;
+    box-shadow: none;
+    cursor: pointer;
+    &:hover {
+        background-color: $bg-color;
+        border: 2px solid $btn-color-dark;
+        color: $btn-color-dark;
+    }
 }
