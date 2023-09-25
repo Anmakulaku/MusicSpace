@@ -1,7 +1,7 @@
 console.log("Plik index.js został wczytany.");
 
 //przejście z bannera do about
-const btn = document.querySelector('.banner__btn--large');
+const btn = document.querySelector('.button__banner');
 const aboutSection = document.querySelector('.about');
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // });
 
 // //wyświetlanie text o about
-const button = document.querySelector('.about__btn--italic');
+const button = document.querySelector('.button__about');
 const textWrap = document.querySelector('.about__text--wrap');
 const textLong = document.querySelector('.about__text--long');
 const aboutInfo = document.querySelector('.about__info');

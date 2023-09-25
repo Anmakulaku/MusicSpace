@@ -34,7 +34,7 @@ ul {
         position: absolute;
         top: 0;
         left: 0;
-        color: $font-color;
+        color: $primary-color;
         @include setFont("Cinzel", $font-weight: 500, $letter-spacing:5px);
         text-transform: uppercase;
 
@@ -51,7 +51,7 @@ ul {
         position: absolute;
         top: 0;
         left: 0;
-        color: $font-color;
+        color: $primary-color;
         @include setFont("Cinzel", $font-weight: 500, $letter-spacing:5px);
         text-transform: uppercase;
 
@@ -80,8 +80,8 @@ ul {
     position: sticky;
     top: 0;
     z-index: 3;
-    border-top: 2px solid $detail-color;
-    border-bottom: 2px solid $detail-color;
+    border-top: 2px solid $primary-color-medium;
+    border-bottom: 2px solid $primary-color-medium;
     background-color: $bg-color;
     &__list{
         @include setFlex(row, space-evenly);
@@ -95,22 +95,22 @@ ul {
     &__item{
         list-style: none;
         &--active{
-            color: $detail-color;
+            color: $primary-color-medium;
             text-decoration: underline;
         }
     }
     &__link{
         text-decoration: none;
-        color: $font-color-dark;
+        color: $primary-color-dark;
         @include setFont("Segoe UI", convertPxToRem(18), $font-weight: 700);
         cursor: pointer;
         &:hover{
-            color: $font-color-medium;
+            color: $primary-color-medium;
         }
         
     }
     &__icon{
-        fill: $btn-color-dark;
+        fill: $secondary-color-dark;
         height: 40px;
         margin: 20px;
     }
@@ -123,11 +123,11 @@ ul {
     &__counter {
         position: relative;
         text-decoration: none;
-        color: $font-color-dark;
+        color: $primary-color-dark;
         @include setFont("Segoe UI", convertPxToRem(18), $font-weight: 700);
         cursor: pointer;
         &:hover {
-            color: $font-color-medium;
+            color: $primary-color-medium;
         }
     }
     
@@ -136,7 +136,7 @@ ul {
         bottom: 50px; 
         right: 5px;
         background-color: $red;
-        color: $font-color;
+        color: $primary-color;
         border-radius: 50%;
         width: 24px; 
         height: 24px;
@@ -157,7 +157,7 @@ ul {
             padding: 0 10px;
             margin-right: 15px;
             border-radius: $border-radius;
-            border: $font-color 2px solid;
+            border: $primary-color 2px solid;
             &:focus{
                 width: 200px;
             }
@@ -189,7 +189,7 @@ ul {
         padding: 30px 40px 20px 0;
         border-radius: $border-radius;
         @include setFont("Segoe UI");
-        color: $font-color;
+        color: $primary-color;
         transition: background-color 0.3s ease; 
         background-color: transparent;
     }
@@ -229,7 +229,7 @@ ul {
         width: 100%;
         border-radius: $border-radius;
         padding: 20px;
-        color: $font-color;
+        color: $primary-color;
         @include setFont("Segoe UI", 16px, 400);
         background-color: rgba(0, 0, 0, 0.7);
         animation: revealText 0.5s 0.3s forwards;
@@ -245,8 +245,8 @@ ul {
     scroll-margin-top: 100px;
     &__content{
         display: block;
-        border-top: 2px solid $detail-color;
-        border-bottom: 2px solid $detail-color;
+        border-top: 2px solid $primary-color-medium;
+        border-bottom: 2px solid $primary-color-medium;
     }
     &__title{
         @include setFont("Segoe UI", 30px, 600, 0px);
@@ -270,11 +270,11 @@ ul {
         @include setFont("Segoe UI", 16px, 400, 0px);
         margin: 0 10px;
         padding: 4px;
-        border: 2px solid $font-color;
+        border: 2px solid $primary-color;
         border-radius: $border-radius;
         cursor: pointer;
         &:hover{
-            border: 2px solid $btn-color; 
+            border: 2px solid $secondary-color; 
         }
     }
     &__products{
@@ -321,7 +321,7 @@ ul {
         font-weight: bold;
     }
     .product-availability.available {
-        color: $btn-color-dark;
+        color: $secondary-color-dark;
     } 
     .product-availability.unavailable {
         color: $red;
@@ -349,9 +349,9 @@ ul {
         padding: 5px 10px;
         display: inline-block;
         text-decoration: none;
-        color: $detail-color;
+        color: $primary-color-medium;
         &--active { 
-            color: $btn-color-dark;
+            color: $secondary-color-dark;
             text-decoration: underline;
         }
     }
@@ -366,7 +366,7 @@ ul {
     margin: 0 auto;
     padding: 10px 0 0 0;
     background-color: $bg-color;
-    border-top: 2px solid $detail-color;
+    border-top: 2px solid $primary-color-medium;
     &__name{
         @include setFlex(row, space-between);
         @include setDimensions(100%, auto, 1500px);
@@ -394,7 +394,7 @@ ul {
         align-items: flex-start;
     }
     &__icon{
-        fill: $btn-color-dark;
+        fill: $secondary-color-dark;
         height: 40px;
         margin-right: 10px;
     }
@@ -422,11 +422,11 @@ ul {
     &__link{
         @include setFont("Segoe UI", 16px, 500, 1px);
         padding: 8px 0;
-        color: $btn-color;
+        color: $secondary-color;
         text-decoration: none; 
         transition: background-color 0.3s;
         &:hover {
-            color: $btn-color-dark; 
+            color: $secondary-color-dark; 
         }
     }
     &__form{
@@ -447,11 +447,11 @@ ul {
         margin: 8px 0;
         padding: 5px;
         border-radius: $border-radius-form;
-        border: $grey 1px solid;
+        border: $primary-color 1px solid;
         &:focus{
             outline: none; 
             border: none;
-            box-shadow: 0 0 8px rgba($btn-color-dark, 0.8);
+            box-shadow: 0 0 8px rgba($secondary-color-dark, 0.8);
         }
     }
     #message{
@@ -469,7 +469,7 @@ ul {
         margin: 0 auto;
         padding: 10px 0;
         background-color: $white;
-        color: darken($btn-color, 10%);
+        color: darken($secondary-color, 10%);
     }
 }
 .modal {
@@ -513,6 +513,7 @@ ul {
     margin: 0 auto 0 auto; 
     min-height: 100vh;
     background-color: $bg-color;
+    margin-bottom: 30px;
     &__title{
         @include setFont("Segoe UI", 30px, 700, 0px);
     }
@@ -528,7 +529,7 @@ ul {
         
     }
     &__icon{
-        fill: $btn-color-dark;
+        fill: $secondary-color-dark;
         height: 20px;
         margin: 20px;
     }
@@ -550,7 +551,7 @@ ul {
             @include setDimensions(20%, auto);
             object-fit: cover;
             margin: 10px;
-            border: 2px solid $btn-color-dark;
+            border: 2px solid $secondary-color-dark;
             border-radius: $border-radius;
             padding: 10px 20px;
         }
@@ -567,12 +568,9 @@ ul {
         @include setFlex(row, $align-items: center, $justify-content: space-between);
         @include setDimensions(100px, auto, none,  40px);
         margin: 10px;
-        color: $font-color-dark;
-        border: 1px solid $grey;
+        color: $primary-color-dark;
+        border: 1px solid $primary-color;
         border-radius: $border-radius-form;
-    }
-    &__counter{
-        color: black;
     }
     &__summary{
         @include setFlex(row, $justify-content: flex-end);
@@ -593,7 +591,6 @@ ul {
             object-fit: cover;
             margin: 10px;
             text-align: center;
-            font-weight: 700;
             font-size: larger;
     }
 }
