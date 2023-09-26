@@ -15,9 +15,11 @@
     <header class="banner page__header" id="home">
         <div class="overlay"></div>
         <img src="images/guitar1.jpg" alt="Zdjecie gitary" class="banner__img">
-        <h1 class="banner__title banner__title--large">Music Space</h1>
-        <h2 class="banner__title banner__title--medium">zajrzyj do świata muzyki</h2>
-        <button class="button__primary button__primary--large button__banner"> WEJDŹ</button>
+        <div class="banner__titles">
+            <h1 class="banner__title banner__title--large">Music Space</h1>
+            <h2 class="banner__title banner__title--medium">zajrzyj do świata muzyki</h2>
+        </div>
+        <!-- <button class="button__primary button__primary--large button__banner"> WEJDŹ</button> -->
     </header>
     <!-- Sekcja MENU -->
     <nav class="menu page__nav">
@@ -25,6 +27,13 @@
             <a href="#home" class="menu__link">
                 <img src="images/logo.png" alt="Logo Music Space" class="logo__img">
             </a>
+        </div>
+        <div class="menu-toggle">
+            <button class="hamburger-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
         <ul class="menu__list">
             <!-- <li class="menu__item  menu__item--active"><a href="#home" class="menu__link">Home</a></li> -->
@@ -159,8 +168,8 @@
                 </form>
             </div>
         </div>
-        <div>
-            <p class="footer copyright"> &copy; 2023 Copyright: Anmakulaku</p>
+        <div class="footer copyright">
+            <p> &copy; 2023 Copyright: Anmakulaku</p>
         </div>
     </footer>
     <div class="modal" id="myModal">

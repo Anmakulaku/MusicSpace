@@ -18,17 +18,6 @@
 .button__primary:hover {
   background-color: #c7c7c7;
 }
-.button__primary--large {
-  bottom: 30%;
-  right: 10%;
-  transform: translate(50%, 50%);
-  font-size: 20px;
-  width: 180px;
-  height: 50px;
-  max-width: none;
-  max-height: none;
-  border-radius: 25px;
-}
 .button__primary--italic {
   bottom: 60px;
   right: 60px;
@@ -125,6 +114,14 @@
   border-radius: 50px;
 }
 
+@media only screen and (max-width: 480px) {
+  .logo {
+    width: 100%;
+    height: auto;
+    max-width: 100px;
+    max-height: none;
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -135,10 +132,13 @@
   justify-content: flex-start;
   align-items: center;
   text-align: justify;
-  max-width: 1500px;
+  flex-wrap: nowrap;
+  align-content: center;
+  max-width: 93.75rem;
   margin: 0 auto 0 auto;
   min-height: 100vh;
   background-color: #FAFAFA;
+  flex-wrap: wrap;
 }
 
 ul {
@@ -149,10 +149,10 @@ ul {
 
 .banner {
   width: 100%;
-  height: 200px;
-  max-width: none;
+  height: 12.5rem;
+  max-width: 100%;
   max-height: none;
-  margin: 0 auto 20px auto;
+  margin: 0 auto;
   position: relative;
   overflow: hidden;
 }
@@ -166,10 +166,25 @@ ul {
      object-fit: cover;
   border-radius: 20px;
 }
-.banner__title {
+.banner__titles {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: justify;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 80%;
+  max-width: none;
+  max-height: none;
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 0;
+  z-index: 5;
+  text-align: center;
+}
+.banner__title {
+  margin: 5px auto;
   color: #E0E0E0;
   font-family: "Cinzel";
   font-size: 16px;
@@ -178,31 +193,10 @@ ul {
   text-transform: uppercase;
 }
 .banner__title--large {
-  font-size: 3.75rem;
-  margin: 30px 0 0 100px;
+  font-size: 3.125em;
 }
 .banner__title--medium {
-  font-size: 2.5rem;
-  margin: 100px 0 0 250px;
-}
-.banner__titleCard {
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: #E0E0E0;
-  font-family: "Cinzel";
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-}
-.banner__titleCard--large {
-  font-size: 60px;
-  margin: 30px 0 0 200px;
-}
-.banner__titleCard--medium {
-  font-size: 40px;
-  margin: 120px 0 0 450px;
+  font-size: 1.875em;
 }
 .banner .overlay {
   position: absolute;
@@ -222,17 +216,36 @@ ul {
   justify-content: space-between;
   align-items: center;
   text-align: justify;
+  flex-wrap: nowrap;
   width: 100%;
   height: auto;
   max-width: 1500px;
   max-height: none;
-  margin: 0 auto;
+  margin: 1.25rem auto;
   position: sticky;
   top: 0;
   z-index: 3;
   border-top: 2px solid #636363;
   border-bottom: 2px solid #636363;
   background-color: #FAFAFA;
+  padding: 4px 0 0 0;
+}
+.menu .menu-toggle {
+  display: block;
+}
+.menu .hamburger-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+.menu .bar {
+  display: block;
+  background-color: #424242;
+  height: 3px;
+  margin: 4px 0;
+  transition: 0.4s;
+  width: 25px;
 }
 .menu__list {
   display: flex;
@@ -240,6 +253,7 @@ ul {
   justify-content: space-evenly;
   align-items: center;
   text-align: justify;
+  flex-wrap: nowrap;
   flex-grow: 2;
   gap: 30px;
   margin: 0 20px;
@@ -280,7 +294,7 @@ ul {
   text-decoration: none;
   color: #424242;
   font-family: "Segoe UI";
-  font-size: 1.125rem;
+  font-size: 1.125em;
   font-weight: 700;
   letter-spacing: 1px;
   cursor: pointer;
@@ -298,37 +312,13 @@ ul {
   width: 24px;
   height: 24px;
   text-align: center;
-  font-size: 16px;
   font-weight: bold;
-  line-height: 24px;
-}
-.menu .search {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: justify;
-}
-.menu .search__input {
-  display: none;
-  width: 180px;
-  height: 44px;
-  max-width: none;
-  max-height: none;
-  padding: 0 10px;
-  margin-right: 15px;
-  border-radius: 20px;
-  border: #E0E0E0 2px solid;
-}
-.menu .search__input:focus {
-  width: 200px;
 }
 
 .about {
   position: relative;
   width: 100%;
-  margin: 20px auto;
+  margin: 0 auto;
   scroll-margin-top: 120px;
 }
 .about__photo {
@@ -357,6 +347,7 @@ ul {
   justify-content: flex-start;
   align-items: flex-start;
   text-align: justify;
+  flex-wrap: nowrap;
   width: 40%;
   padding: 30px 40px 20px 0;
   border-radius: 20px;
@@ -412,6 +403,7 @@ ul {
   justify-content: flex-start;
   align-items: flex-start;
   text-align: justify;
+  flex-wrap: nowrap;
   gap: 10px;
   width: 100%;
   border-radius: 20px;
@@ -439,7 +431,9 @@ ul {
   justify-content: center;
   align-items: center;
   text-align: justify;
+  flex-wrap: nowrap;
   scroll-margin-top: 100px;
+  margin: 20px auto;
 }
 .shop__content {
   display: block;
@@ -466,6 +460,7 @@ ul {
   justify-content: space-evenly;
   align-items: center;
   text-align: justify;
+  flex-wrap: nowrap;
   width: 100%;
   height: auto;
   max-width: none;
@@ -583,10 +578,11 @@ ul {
   justify-content: space-between;
   align-items: center;
   text-align: justify;
+  flex-wrap: nowrap;
   width: 100%;
   height: auto;
-  max-width: none;
-  max-height: none;
+  max-width: 100%;
+  max-height: auto;
   margin: 0 auto;
   padding: 10px 0 0 0;
   background-color: #FAFAFA;
@@ -598,6 +594,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   text-align: justify;
+  flex-wrap: nowrap;
   width: 100%;
   height: auto;
   max-width: 1500px;
@@ -630,6 +627,7 @@ ul {
   justify-content: center;
   align-items: center;
   text-align: justify;
+  flex-wrap: nowrap;
   width: 100%;
   height: auto;
   max-width: 1500px;
@@ -649,6 +647,7 @@ ul {
   justify-content: space-between;
   align-items: flex-start;
   text-align: justify;
+  flex-wrap: nowrap;
   width: 100%;
   height: 100%;
   max-width: none;
@@ -661,6 +660,7 @@ ul {
   justify-content: center;
   align-items: center;
   text-align: justify;
+  flex-wrap: nowrap;
   margin: 16px 48px;
   color: #FF0000;
 }
@@ -707,6 +707,7 @@ ul {
   justify-content: flex-start;
   align-items: center;
   text-align: justify;
+  flex-wrap: nowrap;
   font-family: "Segoe UI";
   font-size: 25px;
   font-weight: 700;
@@ -748,6 +749,7 @@ ul {
   justify-content: center;
   align-items: stretch;
   text-align: justify;
+  flex-wrap: nowrap;
   width: 100%;
   height: auto;
   max-width: 1500px;
@@ -755,7 +757,7 @@ ul {
   padding: 0 12px 12px 12px;
 }
 .footer .copyright {
-  width: 1500px;
+  width: 100%;
   height: auto;
   max-width: none;
   max-height: none;
@@ -763,7 +765,7 @@ ul {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 1px;
-  margin: 0 auto;
+  margin: 0;
   padding: 10px 0;
   background-color: #FFFFFF;
   color: #3d8b40;
@@ -811,6 +813,7 @@ ul {
   justify-content: flex-start;
   align-items: center;
   text-align: justify;
+  flex-wrap: nowrap;
   max-width: 1500px;
   margin: 0 auto 0 auto;
   min-height: 100vh;
@@ -837,6 +840,7 @@ ul {
   justify-content: flex-start;
   align-items: center;
   text-align: justify;
+  flex-wrap: nowrap;
   width: 100%;
   height: auto;
   max-width: 1500px;
@@ -854,6 +858,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   text-align: justify;
+  flex-wrap: nowrap;
   width: 100%;
   height: auto;
   max-width: none;
@@ -912,6 +917,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   text-align: justify;
+  flex-wrap: nowrap;
   width: 100px;
   height: auto;
   max-width: none;
@@ -927,6 +933,7 @@ ul {
   justify-content: flex-end;
   align-items: center;
   text-align: justify;
+  flex-wrap: nowrap;
   width: 100%;
   height: auto;
   max-width: none;
@@ -959,4 +966,83 @@ ul {
   margin: 10px;
   text-align: center;
   font-size: larger;
+}
+
+@media only screen and (max-width: 480px) {
+  .page {
+    max-width: 30rem;
+  }
+  .banner {
+    width: 100%;
+    height: 5.625rem;
+    max-width: 100%;
+    max-height: none;
+    position: relative;
+  }
+  .banner__titles {
+    top: 5px;
+  }
+  .banner__title--large {
+    font-size: 1.25em;
+  }
+  .banner__title--medium {
+    font-size: 1em;
+  }
+  .banner .button__banner {
+    display: none;
+  }
+  .menu {
+    margin: 0.3125rem auto;
+    position: static;
+    top: 100px;
+  }
+  .menu__icon {
+    height: 20px;
+    margin: 10px 20px;
+  }
+  .menu__cartItemCount {
+    bottom: 25px;
+    right: 15px;
+    width: 12px;
+    height: 12px;
+    font-size: 10px;
+  }
+  .menu-toggle {
+    display: block;
+    margin-bottom: 4px;
+  }
+  .menu__list {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: 90px;
+    background-color: #FAFAFA;
+    z-index: 20;
+    color: aqua;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+  }
+  .menu__item {
+    margin: 5px 0;
+    border-bottom: 1px solid #E0E0E0;
+  }
+  .menu__item:last-child {
+    border-bottom: none;
+  }
+  .menu-toggle.active + .menu__list.active {
+    display: block;
+    transform: translateX(0);
+  }
+  .hamburger-button.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 5px);
+  }
+  .hamburger-button.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger-button.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -5px);
+  }
 }/*# sourceMappingURL=style.css.map */

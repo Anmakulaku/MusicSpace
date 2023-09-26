@@ -9,10 +9,12 @@
 }
 .page{
     @include setFlex(column, $justify-content: flex-start);
-    max-width: 1500px;
+    align-content: center;
+    max-width: convertPxToRem(1500);
     margin: 0 auto 0 auto; 
     min-height: 100vh;
     background-color: $bg-color;
+    flex-wrap: wrap;
 }
 ul {
     list-style-type: none; 
@@ -20,8 +22,8 @@ ul {
     padding: 0; 
 }
 .banner{
-    @include setDimensions(100%, 200px);
-    margin: 0 auto 20px auto;
+    @include setDimensions(100%, convertPxToRem(200), 100%);
+    margin: 0 auto;
     position: relative;
     overflow: hidden;
     &__img{
@@ -30,38 +32,26 @@ ul {
         object-fit: cover;
         border-radius: $border-radius;
     }
-    &__title{
+    &__titles{
+        @include setFlex(column, space-between);
+        @include setDimensions(100%, 80%);
         position: absolute;
-        top: 0;
+        top: 10px;
         left: 0;
-        color: $primary-color;
-        @include setFont("Cinzel", $font-weight: 500, $letter-spacing:5px);
-        text-transform: uppercase;
-
-        &--large{
-            font-size: convertPxToRem(60);
-            margin: 30px 0 0 100px;
-        }
-        &--medium{
-            font-size: convertPxToRem(40);
-            margin: 100px 0 0 250px;
-        }
+        z-index: 5;
+        text-align: center;
     }
-    &__titleCard{
-        position: absolute;
-        top: 0;
-        left: 0;
+    &__title{
+        margin: 5px auto;
         color: $primary-color;
         @include setFont("Cinzel", $font-weight: 500, $letter-spacing:5px);
         text-transform: uppercase;
 
         &--large{
-            font-size: 60px;
-            margin: 30px 0 0 200px;
+            font-size: convertPxToEm(50);
         }
         &--medium{
-            font-size: 40px;
-            margin: 120px 0 0 450px;
+            font-size: convertPxToEm(30);
         }
     }
     .overlay{
@@ -76,13 +66,31 @@ ul {
 .menu{
     @include setFlex(row, space-between);
     @include setDimensions(100%, auto, 1500px);
-    margin: 0 auto;
+    margin: convertPxToRem(20) auto;
     position: sticky;
     top: 0;
     z-index: 3;
     border-top: 2px solid $primary-color-medium;
     border-bottom: 2px solid $primary-color-medium;
     background-color: $bg-color;
+    padding: 4px 0 0 0;
+    .menu-toggle {
+        display: block;
+    }
+    .hamburger-button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+    .bar {
+        display: block;
+        background-color: $primary-color-dark;
+        height: 3px;
+        margin: 4px 0;
+        transition: 0.4s;
+        width: 25px;
+    }
     &__list{
         @include setFlex(row, space-evenly);
         flex-grow: 2;
@@ -124,13 +132,12 @@ ul {
         position: relative;
         text-decoration: none;
         color: $primary-color-dark;
-        @include setFont("Segoe UI", convertPxToRem(18), $font-weight: 700);
+        @include setFont("Segoe UI", convertPxToEm(18), $font-weight: 700);
         cursor: pointer;
         &:hover {
             color: $primary-color-medium;
         }
     }
-    
     &__cartItemCount {
         position: absolute;
         bottom: 50px; 
@@ -141,34 +148,29 @@ ul {
         width: 24px; 
         height: 24px;
         text-align: center;
-        font-size: 16px; 
         font-weight: bold;
-        line-height: 24px;
     }
-    
-    
-    
-    .search{
-        position: relative; 
-        @include setFlex(row);
-        &__input{
-            display: none;
-            @include setDimensions(180px, 44px);
-            padding: 0 10px;
-            margin-right: 15px;
-            border-radius: $border-radius;
-            border: $primary-color 2px solid;
-            &:focus{
-                width: 200px;
-            }
-        }
+    // .search{
+    //     position: relative; 
+    //     @include setFlex(row);
+    //     &__input{
+    //         display: none;
+    //         @include setDimensions(180px, 44px);
+    //         padding: 0 10px;
+    //         margin-right: 15px;
+    //         border-radius: $border-radius;
+    //         border: $primary-color 2px solid;
+    //         &:focus{
+    //             width: 200px;
+    //         }
+    //     }
         
-    }
+    // }
 }
 .about{
     position: relative;
     width: 100%;
-    margin: 20px auto;
+    margin: 0 auto;
     scroll-margin-top: 120px;
     &__photo{
         @include setDimensions(100%, 500px);
@@ -243,6 +245,7 @@ ul {
     @include setDimensions(100%, auto, 1500px);
     @include setFlex(column);
     scroll-margin-top: 100px;
+    margin: 20px auto;
     &__content{
         display: block;
         border-top: 2px solid $primary-color-medium;
@@ -362,7 +365,7 @@ ul {
 }
 .footer{
     @include setFlex(column, space-between);
-    @include setDimensions(100%, auto);
+    @include setDimensions(100%, auto, 100%, auto);
     margin: 0 auto;
     padding: 10px 0 0 0;
     background-color: $bg-color;
@@ -464,9 +467,9 @@ ul {
         padding: 0 12px 12px 12px;
     }
     .copyright{
-        @include setDimensions(1500px, auto);
+        @include setDimensions(100%, auto);
         @include setFont("Segoe UI", 12px, 700, 1px);
-        margin: 0 auto;
+        margin: 0;
         padding: 10px 0;
         background-color: $white;
         color: darken($secondary-color, 10%);
@@ -595,3 +598,84 @@ ul {
     }
 }
 
+@media only screen and (max-width: 480px) {
+    .page{
+        max-width: convertPxToRem(480);
+    }
+    .banner{
+        @include setDimensions(100%, convertPxToRem(90), 100%);
+        // @include setFlex(column, space-around, $align-items: none, center);
+        position: relative;
+        &__titles{
+            top: 5px;
+        }
+        &__title{
+            &--large{
+                font-size: convertPxToEm(20);
+            }
+            &--medium{
+                font-size: convertPxToEm(16);
+            }
+        }
+        .button__banner{
+            display:none;
+        }
+    }
+    .menu{
+        margin: convertPxToRem(5) auto;
+        position: static;
+        top: 100px;
+        &__icon{
+            height: 20px;
+            margin: 10px 20px;
+        }
+        &__cartItemCount {
+            bottom: 25px; 
+            right: 15px;
+            width: 12px; 
+            height: 12px;
+            font-size: 10px; 
+        }
+    }
+    .menu-toggle{
+        display: block;
+        margin-bottom: 4px;
+    }
+    .menu__list {
+        display: none; 
+        position: absolute;
+        top: 0px; 
+        left: 0;
+        margin: 0;
+        width: 100%;
+        height: 90px; 
+        background-color: $bg-color; 
+        z-index: 20; 
+        color: aqua;
+        transform: translateX(-100%); 
+        transition: transform 0.3s;
+    }
+    .menu__item{
+        margin: 5px 0;
+        border-bottom: 1px solid $primary-color;
+    }
+    .menu__item:last-child {
+        border-bottom: none; 
+    }
+    .menu-toggle.active + .menu__list.active{
+        display: block;
+        transform: translateX(0);
+    }
+    
+    .hamburger-button.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 5px);
+    }
+
+    .hamburger-button.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-button.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -5px);
+    }
+}

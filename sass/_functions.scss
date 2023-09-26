@@ -1,3 +1,7 @@
 @function convertPxToRem($pxValue){
     @return calc($pxValue / 16) * 1rem;
 }
+
+@function convertPxToEm($pxValue){
+    @return calc($pxValue / 16) * 1em;
+}

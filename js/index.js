@@ -1,17 +1,23 @@
 console.log("Plik index.js został wczytany.");
 
-//przejście z bannera do about
-const btn = document.querySelector('.button__banner');
+//przejście z bannera do about/home
+const btn = document.querySelector('.banner');
 const aboutSection = document.querySelector('.about');
 
 document.addEventListener('DOMContentLoaded', function() {
-        if (btn && aboutSection) {
+        if (btn) {
                 btn.addEventListener('click', function(event) {
-                        aboutSection.scrollIntoView({ behavior: 'smooth' });
-                        console.log("kliknięcie btn baneru");
-        });
+                        if (window.location.pathname === '/cart.html') {
+                                window.location.href = 'index.html';
+                        } else {
+                        if (aboutSection) {
+                                aboutSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                        }
+                });
         }
 });
+
 
 // //kliknięcie search
 // const searchInput = document.querySelector('.search__input');
@@ -71,6 +77,19 @@ menuItems.forEach(item => {
 
         // Dodawanie klasy "active" do klikniętego elementu menu
         item.classList.add('menu__item--active');
+        });
+});
+
+//toggle menu
+const hamburgerButton = document.querySelector('.hamburger-button');
+const menuToggle = document.querySelector('.menu-toggle');
+const menuList = document.querySelector('.menu__list');
+
+document.addEventListener('DOMContentLoaded', function() {
+        hamburgerButton.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                hamburgerButton.classList.toggle('active');
+                menuList.classList.toggle('active');
         });
 });
 

@@ -9,3 +9,8 @@
         border-radius: 50px;
     }
 }
+@media only screen and (max-width: 480px) {
+    .logo{
+        @include setDimensions(100%, auto, 100px);
+    }
+}

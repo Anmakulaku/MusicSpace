@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+
     // Pobierz koszyk z pamięci lokalnej
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
 

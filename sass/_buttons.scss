@@ -14,14 +14,14 @@
         &:hover{
             background-color: darken($primary-color, 10%);
         }
-        &--large{
-            bottom: 30%;
-            right: 10%;
-            transform: translate(50%, 50%);
-            font-size: 20px;
-            @include setDimensions(180px, 50px);
-            border-radius: 25px;
-        }
+        // &--large{
+        //     bottom: 0;
+        //     right: 0;
+        //     transform: translate(-10%, -40%);
+        //     font-size: 20px;
+        //     @include setDimensions(180px, 50px);
+        //     border-radius: 25px;
+        // }
         &--italic{
             bottom: 60px;
             right: 60px;
