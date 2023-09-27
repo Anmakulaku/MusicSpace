@@ -185,7 +185,7 @@ ul {
         position: absolute;
         top: 0;
         right: 0;
-        bottom: 4px;
+        bottom: 0;
         @include setFlex(column, flex-start, flex-start);
         width: 40%;
         padding: 30px 40px 20px 0;
@@ -200,7 +200,6 @@ ul {
         margin: 20px 0 30px 0;
     }
     &__text{
-        
         padding: 10px;
     }
     &__text--wrap{
@@ -636,46 +635,150 @@ ul {
             height: 12px;
             font-size: 10px; 
         }
-    }
-    .menu-toggle{
-        display: block;
-        margin-bottom: 4px;
-    }
-    .menu__list {
-        display: none; 
-        position: absolute;
-        top: 0px; 
-        left: 0;
-        margin: 0;
-        width: 100%;
-        height: 90px; 
-        background-color: $bg-color; 
-        z-index: 20; 
-        color: aqua;
-        transform: translateX(-100%); 
-        transition: transform 0.3s;
-    }
-    .menu__item{
-        margin: 5px 0;
-        border-bottom: 1px solid $primary-color;
-    }
-    .menu__item:last-child {
-        border-bottom: none; 
-    }
-    .menu-toggle.active + .menu__list.active{
-        display: block;
-        transform: translateX(0);
-    }
+        .menu-toggle{
+            display: block;
+            margin-bottom: 4px;
+        }
+        .menu__list {
+            display: none; 
+            position: absolute;
+            top: 0; 
+            left: 0;
+            margin: 0;
+            width: 100%;
+            height: 90px; 
+            background-color: $bg-color; 
+            z-index: 20; 
+            transform: translateX(-100%); 
+            transition: transform 0.3s;
+        }
+        .menu__item{
+            margin: 5px 0;
+            border-bottom: 1px solid $primary-color;
+        }
+        .menu__item:last-child {
+            border-bottom: none; 
+        }
+        .menu-toggle.active + .menu__list.active{
+            display: block;
+            transform: translateX(0);
+        }
+        
+        .hamburger-button.active .bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 5px);
+        }
     
-    .hamburger-button.active .bar:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 5px);
+        .hamburger-button.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+    
+        .hamburger-button.active .bar:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -5px);
+        }
     }
-
-    .hamburger-button.active .bar:nth-child(2) {
-        opacity: 0;
+    .about{
+        scroll-margin-top: 10px;
+        &__photo{
+            @include setDimensions(100%, 200px);
+            
+        }
+        &__info{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            padding: 5px;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        &__title{
+            @include setFont("Segoe UI", 20px, 600);
+            margin: 0 auto;
+        }
+        &__text--wrap{
+            @include setFont("Segoe UI", 12px, 400);
+            display: block;
+        }
+    } 
+    .shop{
+        @include setDimensions(100%, auto, 480px);
+        scroll-margin-top: 5px;
+        margin: 5px auto;
+        &__title{
+            @include setFont("Segoe UI", 18px, 600, 0px);
+            margin: 8px 8px;
+        }
+        &__text{
+            @include setFont("Segoe UI", 12px, 400, 0px);
+            margin: 10px 10px 20px 10px;
+        }
+        &__sortTitle{
+            @include setFont("Segoe UI", 14px, 500, 0px);
+            margin: 0 10px;
+        }
+        &__sortItem{
+            @include setFont("Segoe UI", 12px, 400, 0px);
+            margin: 0 5px;
+            padding: 2px;
+        }
+        &__products{
+            justify-content: center;
+            max-width: 480px;
+        }
+        .product-card-template{
+        flex: 0 1 calc(25% - 20px);
+        margin: 5px;
+        max-height: 350px;
+        padding: 8px;
+        @include setFont("Segoe UI", 12px, 300, 0px);
+        }
+        .product-image {
+            width: auto;
+            height: 120px;
+            margin: 0 auto;
+            max-height: 90%;
+        }
+        .product-name {
+            margin: 5px 0;
+            max-height: 70px;
+            height: 100%;
+        }
     }
-
-    .hamburger-button.active .bar:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -5px);
+    .footer{
+        &__info{
+            @include setFont("Segoe UI", 14px, 600, 1px);
+            margin: 5px 20px;
+            .companyName{
+                @include setFont("Segoe UI", 16px, 700, 1px);
+            }
+        }
+        &__content{
+            @include setFlex(column, flex-start, space-between flex-start);
+            @include setDimensions(100%, auto, 480px);
+        }
+        &__phone{
+            @include setFlex(row, $align-items: center);
+            margin: 15px 20px;
+            color: $red;
+            .phoneTitle{
+                @include setFont("Segoe UI", 24px, 700, 1px);
+            }
+        }
+        &__department{
+            @include setFont("Segoe UI", 14px, 700, 1px);
+            margin: 0 0 12px 20px;  
+        }
+        &__form{
+            width: 100%;
+            padding: 0 0 8px 20px;
+            flex: 1;
+        }
+        &__contactForm{
+            @include setFlex(column, $align-items: stretch);
+            @include setDimensions(100%, auto, 480px);
+            padding: 0;
+        }
+        &__email{
+            margin: 16px 0;
+        }
     }
 }

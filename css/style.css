@@ -341,7 +341,7 @@ ul {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 4px;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1007,42 +1007,203 @@ ul {
     height: 12px;
     font-size: 10px;
   }
-  .menu-toggle {
+  .menu .menu-toggle {
     display: block;
     margin-bottom: 4px;
   }
-  .menu__list {
+  .menu .menu__list {
     display: none;
     position: absolute;
-    top: 0px;
+    top: 0;
     left: 0;
     margin: 0;
     width: 100%;
     height: 90px;
     background-color: #FAFAFA;
     z-index: 20;
-    color: aqua;
     transform: translateX(-100%);
     transition: transform 0.3s;
   }
-  .menu__item {
+  .menu .menu__item {
     margin: 5px 0;
     border-bottom: 1px solid #E0E0E0;
   }
-  .menu__item:last-child {
+  .menu .menu__item:last-child {
     border-bottom: none;
   }
-  .menu-toggle.active + .menu__list.active {
+  .menu .menu-toggle.active + .menu__list.active {
     display: block;
     transform: translateX(0);
   }
-  .hamburger-button.active .bar:nth-child(1) {
+  .menu .hamburger-button.active .bar:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 5px);
   }
-  .hamburger-button.active .bar:nth-child(2) {
+  .menu .hamburger-button.active .bar:nth-child(2) {
     opacity: 0;
   }
-  .hamburger-button.active .bar:nth-child(3) {
+  .menu .hamburger-button.active .bar:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -5px);
+  }
+  .about {
+    scroll-margin-top: 10px;
+  }
+  .about__photo {
+    width: 100%;
+    height: 200px;
+    max-width: none;
+    max-height: none;
+  }
+  .about__info {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .about__title {
+    font-family: "Segoe UI";
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0 auto;
+  }
+  .about__text--wrap {
+    font-family: "Segoe UI";
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    display: block;
+  }
+  .shop {
+    width: 100%;
+    height: auto;
+    max-width: 480px;
+    max-height: none;
+    scroll-margin-top: 5px;
+    margin: 5px auto;
+  }
+  .shop__title {
+    font-family: "Segoe UI";
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0px;
+    margin: 8px 8px;
+  }
+  .shop__text {
+    font-family: "Segoe UI";
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    margin: 10px 10px 20px 10px;
+  }
+  .shop__sortTitle {
+    font-family: "Segoe UI";
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0px;
+    margin: 0 10px;
+  }
+  .shop__sortItem {
+    font-family: "Segoe UI";
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    margin: 0 5px;
+    padding: 2px;
+  }
+  .shop__products {
+    justify-content: center;
+    max-width: 480px;
+  }
+  .shop .product-card-template {
+    flex: 0 1 calc(25% - 20px);
+    margin: 5px;
+    max-height: 350px;
+    padding: 8px;
+    font-family: "Segoe UI";
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0px;
+  }
+  .shop .product-image {
+    width: auto;
+    height: 120px;
+    margin: 0 auto;
+    max-height: 90%;
+  }
+  .shop .product-name {
+    margin: 5px 0;
+    max-height: 70px;
+    height: 100%;
+  }
+  .footer__info {
+    font-family: "Segoe UI";
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 5px 20px;
+  }
+  .footer__info .companyName {
+    font-family: "Segoe UI";
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .footer__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: space-between flex-start;
+    text-align: justify;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: auto;
+    max-width: 480px;
+    max-height: none;
+  }
+  .footer__phone {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    flex-wrap: nowrap;
+    margin: 15px 20px;
+    color: #FF0000;
+  }
+  .footer__phone .phoneTitle {
+    font-family: "Segoe UI";
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .footer__department {
+    font-family: "Segoe UI";
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0 0 12px 20px;
+  }
+  .footer__form {
+    width: 100%;
+    padding: 0 0 8px 20px;
+    flex: 1;
+  }
+  .footer__contactForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    text-align: justify;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: auto;
+    max-width: 480px;
+    max-height: none;
+    padding: 0;
+  }
+  .footer__email {
+    margin: 16px 0;
   }
 }/*# sourceMappingURL=style.css.map */

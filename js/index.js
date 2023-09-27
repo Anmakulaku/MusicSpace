@@ -84,12 +84,16 @@ menuItems.forEach(item => {
 const hamburgerButton = document.querySelector('.hamburger-button');
 const menuToggle = document.querySelector('.menu-toggle');
 const menuList = document.querySelector('.menu__list');
+const bannerTitles = document.querySelector('.banner__titles');
 
 document.addEventListener('DOMContentLoaded', function() {
         hamburgerButton.addEventListener('click', function() {
                 menuToggle.classList.toggle('active');
                 hamburgerButton.classList.toggle('active');
                 menuList.classList.toggle('active');
+                if (bannerTitles) {
+                        bannerTitles.style.display = bannerTitles.style.display ==='none' ? "block" : "none";
+                }
         });
 });
 
