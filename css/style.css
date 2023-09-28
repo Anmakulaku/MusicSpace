@@ -102,6 +102,15 @@
   cursor: pointer;
 }
 
+@media only screen and (max-width: 480px) {
+  .button__secondary--large {
+    width: 200px;
+    height: 40px;
+    max-width: 300px;
+    max-height: none;
+    margin: 5px 20px;
+  }
+}
 .logo {
   flex-grow: 1;
   width: 100%;
@@ -781,10 +790,9 @@ ul {
   background-color: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 20;
 }
-
-.modal-content {
+.modal .modal-content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -795,16 +803,17 @@ ul {
   height: 100%;
   max-height: 200px;
   background-color: white;
-  padding: 20px;
+  margin: 5px;
   border-radius: 20px;
   text-align: center;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
-
-#modalMessage {
+.modal #modalMessage {
+  font-family: "Segoe UI";
   font-size: 20px;
   font-weight: 600;
-  padding: 20px;
+  letter-spacing: 1px;
+  padding: 10px;
 }
 
 .cart {
@@ -825,13 +834,14 @@ ul {
   font-size: 30px;
   font-weight: 700;
   letter-spacing: 0px;
+  margin: 20px auto;
 }
 .cart__contener {
   width: 100%;
   height: auto;
   max-width: 1500px;
   max-height: none;
-  margin: 20px auto;
+  margin: 0 auto;
   border-radius: 20px;
 }
 .cart__items {
@@ -1119,7 +1129,7 @@ ul {
   .shop .product-card-template {
     flex: 0 1 calc(25% - 20px);
     margin: 5px;
-    max-height: 350px;
+    max-height: 320px;
     padding: 8px;
     font-family: "Segoe UI";
     font-size: 12px;
@@ -1136,6 +1146,13 @@ ul {
     margin: 5px 0;
     max-height: 70px;
     height: 100%;
+  }
+  .footer {
+    width: 100%;
+    height: auto;
+    max-width: 480px;
+    max-height: none;
+    scroll-margin-top: 20px;
   }
   .footer__info {
     font-family: "Segoe UI";
@@ -1179,11 +1196,22 @@ ul {
     letter-spacing: 1px;
   }
   .footer__department {
+    margin: 5px 0 5px 20px;
+  }
+  .footer__department p {
+    margin: 0;
+  }
+  .footer__departmentTitle {
+    font-family: "Segoe UI";
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .footer__link {
     font-family: "Segoe UI";
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 1px;
-    margin: 0 0 12px 20px;
   }
   .footer__form {
     width: 100%;
@@ -1205,5 +1233,118 @@ ul {
   }
   .footer__email {
     margin: 16px 0;
+  }
+  .footer__formTitle {
+    font-family: "Segoe UI";
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 0;
+  }
+  .footer__labelTitle {
+    font-family: "Segoe UI";
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 0;
+  }
+  .modal .modal-content {
+    width: 100%;
+    max-width: 480px;
+    height: 100%;
+    max-height: 200px;
+    padding: 10px;
+  }
+  .modal #modalMessage {
+    font-family: "Segoe UI";
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 0;
+  }
+  .cart {
+    max-width: 480px;
+  }
+  .cart__title {
+    font-family: "Segoe UI";
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0px;
+  }
+  .cart__contener {
+    width: 100%;
+    height: auto;
+    max-width: 480px;
+    max-height: none;
+  }
+  .cart__singleItem {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr minmax(auto, 40px) minmax(auto, 50px) minmax(auto, 40px);
+    gap: 4px;
+    align-items: center;
+  }
+  .cart .product-image {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    grid-row: span 4;
+  }
+  .cart .product-name {
+    font-family: "Segoe UI";
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0px;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+  }
+  .cart .product-price {
+    font-family: "Segoe UI";
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0px;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    margin: 0px;
+  }
+  .cart .cart__itemQuantity {
+    font-family: "Segoe UI";
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0px;
+    width: 100px;
+    height: auto;
+    max-width: none;
+    max-height: 30px;
+    margin: 5px auto;
+  }
+  .cart .btn-remove {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    text-align: center;
+  }
+  .cart__summary {
+    margin: 10px 0;
+    padding: 10px;
+  }
+  .cart__summaryTitle {
+    font-family: "Segoe UI";
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0px;
+  }
+  .cart__summaryPrice {
+    font-family: "Segoe UI";
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0px;
   }
 }/*# sourceMappingURL=style.css.map */

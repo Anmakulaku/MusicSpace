@@ -101,3 +101,11 @@
     align-items: center;
     cursor: pointer;
 }
+@media only screen and (max-width: 480px) {
+    .button__secondary {
+        &--large{
+            @include setDimensions(200px, 40px, 300px);
+            margin: 5px 20px;
+        }
+    }
+}
