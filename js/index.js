@@ -48,19 +48,33 @@ const aboutInfo = document.querySelector('.about__info');
 
 document.addEventListener('DOMContentLoaded', function() {
         if (button && textWrap && textLong && aboutInfo) {
-        button.addEventListener('click', function() {
-                if (textWrap.classList.contains('about__collapsed--wrap')) {
-                        textWrap.classList.remove('about__collapsed--wrap');
-                        textLong.classList.remove('about__collapsed--long');
-                        aboutInfo.classList.remove('about__info--expanded');
-                        button.textContent = 'WIĘCEJ';
-                } else {
-                        textWrap.classList.add('about__collapsed--wrap');
-                        textLong.classList.add('about__collapsed--long');
-                        aboutInfo.classList.add('about__info--expanded');
-                        button.textContent = 'MNIEJ';
-                }
-        });
+                const isMobile = window.innerWidth <= 480; 
+
+                button.addEventListener('click', function() {
+                        if (isMobile) {
+                                if (textLong.style.display === 'none' || textLong.style.display === '') {
+                                        textLong.style.display = 'block';
+                                        textWrap.style.display = 'none';
+                                        button.textContent = 'MNIEJ';
+                                } else {
+                                        textLong.style.display = 'none';
+                                        textWrap.style.display = 'block';
+                                        button.textContent = 'WIĘCEJ';
+                                }
+                        } else {
+                                if (textWrap.classList.contains('about__collapsed--wrap')) {
+                                        textWrap.classList.remove('about__collapsed--wrap');
+                                        textLong.classList.remove('about__collapsed--long');
+                                        aboutInfo.classList.remove('about__info--expanded');
+                                        button.textContent = 'WIĘCEJ';
+                                } else {
+                                        textWrap.classList.add('about__collapsed--wrap');
+                                        textLong.classList.add('about__collapsed--long');
+                                        aboutInfo.classList.add('about__info--expanded');
+                                        button.textContent = 'MNIEJ';
+                                }
+                        }
+                });
         };
 });
 // active

@@ -173,13 +173,14 @@ ul {
     margin: 0 auto;
     scroll-margin-top: 120px;
     &__photo{
-        @include setDimensions(100%, 500px);
+        @include setDimensions(100%, auto, 100%, 500px);
         overflow: hidden;
         border-radius: $border-radius;
     }
     &__img{
         @include setDimensions(100%, auto);
         object-fit: cover;
+        margin-bottom: -5px;
     }
     &__info{
         position: absolute;
@@ -676,8 +677,11 @@ ul {
     }
     .about{
         scroll-margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         &__photo{
-            @include setDimensions(100%, 200px);
+            @include setDimensions(100%, auto);
             
         }
         &__info{
@@ -685,16 +689,25 @@ ul {
             left: 0;
             bottom: 0;
             width: 100%;
-            padding: 5px;
-            background-color: rgba(0, 0, 0, 0.6);
+            padding: 0;
+            background-color: rgba(0, 0, 0, 0.7);
         }
         &__title{
             @include setFont("Segoe UI", 20px, 600);
-            margin: 0 auto;
+            margin: 10px auto 5px auto;
         }
         &__text--wrap{
             @include setFont("Segoe UI", 12px, 400);
             display: block;
+            margin: 20px 5px;
+        }
+        &__text--long{
+            height: auto;
+            margin: 5px;
+            @include setFont("Segoe UI", 12px, 400);
+            span{
+                display: none; 
+            }
         }
     } 
     .shop{

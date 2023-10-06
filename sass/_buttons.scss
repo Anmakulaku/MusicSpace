@@ -108,4 +108,18 @@
             margin: 5px 20px;
         }
     }
+    .button__primary{
+        border-radius: $border-radius 0 0 0;
+        @include setDimensions(90px, 30px, 200px);
+            &:hover{
+                background-color: $bg-color;
+                color: $primary-color;
+            } 
+            &--italic{
+                bottom: 0px;
+                right: 0px;
+                font-style: italic;
+            }
+        
+    }
 }
