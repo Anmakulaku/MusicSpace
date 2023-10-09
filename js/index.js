@@ -55,10 +55,12 @@ document.addEventListener('DOMContentLoaded', function() {
                                 if (textLong.style.display === 'none' || textLong.style.display === '') {
                                         textLong.style.display = 'block';
                                         textWrap.style.display = 'none';
+                                        // aboutInfo.classList.add('about__info--expanded');
                                         button.textContent = 'MNIEJ';
                                 } else {
                                         textLong.style.display = 'none';
                                         textWrap.style.display = 'block';
+                                        // aboutInfo.classList.remove('about__info--expanded');
                                         button.textContent = 'WIĘCEJ';
                                 }
                         } else {

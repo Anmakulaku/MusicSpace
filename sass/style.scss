@@ -75,7 +75,7 @@ ul {
     background-color: $bg-color;
     padding: 4px 0 0 0;
     .menu-toggle {
-        display: block;
+        display: none;
     }
     .hamburger-button {
         background-color: transparent;
@@ -549,7 +549,7 @@ ul {
         }
         .product-name{
             @include setFont("Segoe UI", 18px, 500, 0px);
-            @include setDimensions(20%, auto);
+            @include setDimensions(30%, auto);
             object-fit: cover;
             margin: 10px;
             border: 2px solid $secondary-color-dark;
@@ -558,7 +558,7 @@ ul {
         }
         .product-price{
             @include setFont("Segoe UI", 20px, 700, 0px);
-            @include setDimensions(30%, auto);
+            @include setDimensions(20%, auto);
             object-fit: cover;
             margin: 10px;
             text-align: center;
@@ -690,21 +690,21 @@ ul {
             bottom: 0;
             width: 100%;
             padding: 0;
-            background-color: rgba(0, 0, 0, 0.7);
         }
         &__title{
             @include setFont("Segoe UI", 20px, 600);
             margin: 10px auto 5px auto;
         }
         &__text--wrap{
-            @include setFont("Segoe UI", 12px, 400);
+            @include setFont("Segoe UI", 12px, 600);
             display: block;
-            margin: 20px 5px;
+            margin: 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9), transparent)
         }
         &__text--long{
             height: auto;
-            margin: 5px;
-            @include setFont("Segoe UI", 12px, 400);
+            margin: 5px 20px;
+            @include setFont("Segoe UI", 12px, 600);
             span{
                 display: none; 
             }
@@ -732,15 +732,15 @@ ul {
             padding: 2px;
         }
         &__products{
-            justify-content: center;
-            max-width: 480px;
+            justify-content: center; 
+            max-width: 480px; 
         }
         .product-card-template{
-        flex: 0 1 calc(25% - 20px);
-        margin: 5px;
-        max-height: 320px;
-        padding: 8px;
-        @include setFont("Segoe UI", 12px, 300, 0px);
+            flex: 0 1 calc(25% - 20px);
+            margin: 5px;
+            max-height: 320px;
+            padding: 8px;
+            @include setFont("Segoe UI", 12px, 300, 0px);
         }
         .product-image {
             width: auto;
@@ -756,7 +756,7 @@ ul {
     }
     .footer{
         @include setDimensions(100%, auto, 480px);
-        scroll-margin-top: 20px;
+        scroll-margin-top: 5px;
         &__info{
             @include setFont("Segoe UI", 14px, 600, 1px);
             margin: 5px 20px;
@@ -874,6 +874,157 @@ ul {
     }
 }
 
-@media screen and (min-width: 480px) and (max-width: 768px) {
-
+@media screen and (min-width: 480px) and (max-width: 992px) {
+    .page{
+        max-width: convertPxToRem(992);
+    }
+    .banner{
+        @include setDimensions(100%, convertPxToRem(150), 100%);
+        &__titles{
+            top: 10px;
+        }
+        &__title{
+            &--large{
+                font-size: convertPxToEm(36);
+            }
+            &--medium{
+                font-size: convertPxToEm(28);
+            }
+        }
+    }
+    .menu{
+        margin: convertPxToRem(5) auto;
+        position: static;
+        top: 100px;
+        &__icon{
+            height: 30px;
+            margin: 10px 20px;
+        }
+        &__cartItemCount {
+            bottom: 35px; 
+            right: 15px;
+            width: 12px; 
+            height: 12px;
+            font-size: 10px; 
+        }
+        .menu__list {
+            width: 100%;
+            height: 70px; 
+        }
+    }
+    .about{
+        &__info{
+            width: 100%;
+            padding: 30px 40px 20px 40px;
+            border-radius: $border-radius;
+            color: $primary-color;
+            transition: background-color 0.3s ease; 
+            background-color: transparent;
+        }
+        &__info--expanded {
+            @include setFont("Segoe UI", 16px, 500);
+        }
+        &__title{
+            @include setFont("Segoe UI", 24px, 600);
+            margin: 0;
+        }
+        &__text--wrap{
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9), transparent);
+            padding: 10px 0;
+            margin:0;
+            @include setFont("Segoe UI", 16px, 500);
+        }
+        &__collapsed--wrap {
+            padding: 0;
+        }
+        &__info--expanded {
+            padding: 30px 40px 20px 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    }
+    .shop{
+        @include setDimensions(100%, auto, 992px);
+        scroll-margin-top: 5px;
+        margin: 5px auto;
+        &__title{
+            @include setFont("Segoe UI", 22px, 600, 0px);
+            margin: 8px 8px;
+        }
+        &__text{
+            @include setFont("Segoe UI", 16px, 400, 0px);
+            margin: 10px 10px 20px 10px;
+        }
+        &__sortTitle{
+            @include setFont("Segoe UI", 16px, 500, 0px);
+            margin: 0 10px;
+        }
+        &__sortItem{
+            @include setFont("Segoe UI", 14px, 400, 0px);
+            margin: 0 5px;
+            padding: 2px;
+        }
+        &__products{
+            justify-content: center; 
+            align-items: flex-start; 
+            max-width: 992px; 
+            flex-wrap: wrap; 
+            position: relative;
+        }
+        &__products::after {
+            content: ""; 
+            flex: 0 1 calc(25% - 15px); 
+            margin: 5px; 
+        }
+        .product-card-template{
+        flex: 0 1 calc(25% - 15px);
+        margin: 5px;
+        max-height: 320px;
+        padding: 8px;
+        @include setFont("Segoe UI", 12px, 300, 0px);
+        }
+        .product-image {
+            width: auto;
+            height: 120px;
+            margin: 0 auto;
+            max-height: 90%;
+        }
+        .product-name {
+            margin: 5px 0;
+            max-height: 70px;
+            height: 100%;
+        }
+        
+    }
+    .footer{
+        @include setDimensions(100%, auto, 922px);
+        scroll-margin-top: 5px;
+        &__info{
+            @include setFont("Segoe UI", 16px, 600, 1px);
+            margin: 5px 20px;
+            .companyName{
+                @include setFont("Segoe UI", 18px, 700, 1px);
+            }
+        }
+        &__phone{
+            @include setFlex(row, $align-items: center);
+            margin: 15px 20px;
+            color: $red;
+            .phoneTitle{
+                @include setFont("Segoe UI", 18px, 700, 1px);
+            }
+        }
+        &__department{
+            margin: 5px 0 5px 20px;  
+        }
+        &__formTitle{
+            @include setFont("Segoe UI", 18px, 700, 1px);
+            padding: 0;
+        }
+    }
+    .modal{
+        .modal-content{
+            max-width: 600px;
+            max-height: 180px;
+        }
+    }
 }

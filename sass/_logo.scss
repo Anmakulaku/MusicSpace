@@ -14,3 +14,9 @@
         @include setDimensions(100%, auto, 100px);
     }
 }
+
+@media screen and (min-width: 480px) and (max-width: 992px) {
+    .logo{
+        @include setDimensions(100%, auto, 120px);
+    }
+}

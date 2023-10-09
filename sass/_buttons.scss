@@ -118,8 +118,17 @@
             &--italic{
                 bottom: 0px;
                 right: 0px;
-                font-style: italic;
             }
         
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+    .button__primary{
+        &--italic{
+            bottom: 40px;
+            right: 60px;
+            font-style: italic;
+        }
     }
 }

@@ -124,6 +124,12 @@
   .button__primary--italic {
     bottom: 0px;
     right: 0px;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .button__primary--italic {
+    bottom: 40px;
+    right: 60px;
     font-style: italic;
   }
 }
@@ -144,6 +150,14 @@
     width: 100%;
     height: auto;
     max-width: 100px;
+    max-height: none;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 992px) {
+  .logo {
+    width: 100%;
+    height: auto;
+    max-width: 120px;
     max-height: none;
   }
 }
@@ -256,7 +270,7 @@ ul {
   padding: 4px 0 0 0;
 }
 .menu .menu-toggle {
-  display: block;
+  display: none;
 }
 .menu .hamburger-button {
   background-color: transparent;
@@ -909,7 +923,7 @@ ul {
   font-size: 18px;
   font-weight: 500;
   letter-spacing: 0px;
-  width: 20%;
+  width: 30%;
   height: auto;
   max-width: none;
   max-height: none;
@@ -925,7 +939,7 @@ ul {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0px;
-  width: 30%;
+  width: 20%;
   height: auto;
   max-width: none;
   max-height: none;
@@ -1089,7 +1103,6 @@ ul {
     bottom: 0;
     width: 100%;
     padding: 0;
-    background-color: rgba(0, 0, 0, 0.7);
   }
   .about__title {
     font-family: "Segoe UI";
@@ -1101,17 +1114,18 @@ ul {
   .about__text--wrap {
     font-family: "Segoe UI";
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: 1px;
     display: block;
-    margin: 20px 5px;
+    margin: 20px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), transparent);
   }
   .about__text--long {
     height: auto;
-    margin: 5px;
+    margin: 5px 20px;
     font-family: "Segoe UI";
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: 1px;
   }
   .about__text--long span {
@@ -1184,7 +1198,7 @@ ul {
     height: auto;
     max-width: 480px;
     max-height: none;
-    scroll-margin-top: 20px;
+    scroll-margin-top: 5px;
   }
   .footer__info {
     font-family: "Segoe UI";
@@ -1378,5 +1392,202 @@ ul {
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 0px;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 992px) {
+  .page {
+    max-width: 62rem;
+  }
+  .banner {
+    width: 100%;
+    height: 9.375rem;
+    max-width: 100%;
+    max-height: none;
+  }
+  .banner__titles {
+    top: 10px;
+  }
+  .banner__title--large {
+    font-size: 2.25em;
+  }
+  .banner__title--medium {
+    font-size: 1.75em;
+  }
+  .menu {
+    margin: 0.3125rem auto;
+    position: static;
+    top: 100px;
+  }
+  .menu__icon {
+    height: 30px;
+    margin: 10px 20px;
+  }
+  .menu__cartItemCount {
+    bottom: 35px;
+    right: 15px;
+    width: 12px;
+    height: 12px;
+    font-size: 10px;
+  }
+  .menu .menu__list {
+    width: 100%;
+    height: 70px;
+  }
+  .about__info {
+    width: 100%;
+    padding: 30px 40px 20px 40px;
+    border-radius: 20px;
+    color: #E0E0E0;
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+  }
+  .about__info--expanded {
+    font-family: "Segoe UI";
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  .about__title {
+    font-family: "Segoe UI";
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0;
+  }
+  .about__text--wrap {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), transparent);
+    padding: 10px 0;
+    margin: 0;
+    font-family: "Segoe UI";
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  .about__collapsed--wrap {
+    padding: 0;
+  }
+  .about__info--expanded {
+    padding: 30px 40px 20px 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  .shop {
+    width: 100%;
+    height: auto;
+    max-width: 992px;
+    max-height: none;
+    scroll-margin-top: 5px;
+    margin: 5px auto;
+  }
+  .shop__title {
+    font-family: "Segoe UI";
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0px;
+    margin: 8px 8px;
+  }
+  .shop__text {
+    font-family: "Segoe UI";
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    margin: 10px 10px 20px 10px;
+  }
+  .shop__sortTitle {
+    font-family: "Segoe UI";
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0px;
+    margin: 0 10px;
+  }
+  .shop__sortItem {
+    font-family: "Segoe UI";
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    margin: 0 5px;
+    padding: 2px;
+  }
+  .shop__products {
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 992px;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .shop__products::after {
+    content: "";
+    flex: 0 1 calc(25% - 15px);
+    margin: 5px;
+  }
+  .shop .product-card-template {
+    flex: 0 1 calc(25% - 15px);
+    margin: 5px;
+    max-height: 320px;
+    padding: 8px;
+    font-family: "Segoe UI";
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0px;
+  }
+  .shop .product-image {
+    width: auto;
+    height: 120px;
+    margin: 0 auto;
+    max-height: 90%;
+  }
+  .shop .product-name {
+    margin: 5px 0;
+    max-height: 70px;
+    height: 100%;
+  }
+  .footer {
+    width: 100%;
+    height: auto;
+    max-width: 922px;
+    max-height: none;
+    scroll-margin-top: 5px;
+  }
+  .footer__info {
+    font-family: "Segoe UI";
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 5px 20px;
+  }
+  .footer__info .companyName {
+    font-family: "Segoe UI";
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .footer__phone {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    flex-wrap: nowrap;
+    margin: 15px 20px;
+    color: #FF0000;
+  }
+  .footer__phone .phoneTitle {
+    font-family: "Segoe UI";
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .footer__department {
+    margin: 5px 0 5px 20px;
+  }
+  .footer__formTitle {
+    font-family: "Segoe UI";
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 0;
+  }
+  .modal .modal-content {
+    max-width: 600px;
+    max-height: 180px;
   }
 }/*# sourceMappingURL=style.css.map */
