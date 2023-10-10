@@ -206,13 +206,15 @@ ul {
     &__text--wrap{
         @include setFont("Segoe UI", 16px, 400);
         display: block;
+        text-indent: 20px;
     }
     &__text--long{
         display: none;
+        text-indent: 20px;
         span{
             display: block; 
             @include setFont("Segoe UI", 20px, 700);
-            margin-top: 20px;
+            margin-top: 40px;
         }
     }
     &__collapsed--wrap {
@@ -258,6 +260,7 @@ ul {
     &__text{
         @include setFont("Segoe UI", 16px, 400, 0px);
         margin: 10px 10px 20px 10px;
+        text-indent: 20px;
     }
     &__select{
         @include setFlex(row, space-evenly);
@@ -596,9 +599,15 @@ ul {
     }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
+    *{
+        ::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+    }
     .page{
-        max-width: convertPxToRem(480);
+        max-width: convertPxToRem(576);
     }
     .banner{
         @include setDimensions(100%, convertPxToRem(90), 100%);
@@ -635,6 +644,7 @@ ul {
             font-size: 10px; 
         }
         .menu-toggle{
+            flex: 2;
             display: block;
             margin-bottom: 4px;
         }
@@ -681,37 +691,37 @@ ul {
         flex-direction: column;
         align-items: center;
         &__photo{
-            @include setDimensions(100%, auto);
-            
+            @include setDimensions(100%, auto, 100%, 250px);
         }
         &__info{
             position: absolute;
             left: 0;
-            bottom: 0;
+            top: 0;
             width: 100%;
             padding: 0;
+            z-index: 8;
         }
         &__title{
             @include setFont("Segoe UI", 20px, 600);
-            margin: 10px auto 5px auto;
+            margin: 10px auto;
         }
         &__text--wrap{
             @include setFont("Segoe UI", 12px, 600);
             display: block;
-            margin: 20px;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9), transparent)
+            margin: 0 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9), transparent);
         }
         &__text--long{
             height: auto;
-            margin: 5px 20px;
+            margin: 20px;
             @include setFont("Segoe UI", 12px, 600);
             span{
                 display: none; 
-            }
+            } 
         }
     } 
     .shop{
-        @include setDimensions(100%, auto, 480px);
+        @include setDimensions(100%, auto, 576px);
         scroll-margin-top: 5px;
         margin: 5px auto;
         &__title{
@@ -733,7 +743,7 @@ ul {
         }
         &__products{
             justify-content: center; 
-            max-width: 480px; 
+            max-width: 576px; 
         }
         .product-card-template{
             flex: 0 1 calc(25% - 20px);
@@ -755,7 +765,7 @@ ul {
         }
     }
     .footer{
-        @include setDimensions(100%, auto, 480px);
+        @include setDimensions(100%, auto, 576px);
         scroll-margin-top: 5px;
         &__info{
             @include setFont("Segoe UI", 14px, 600, 1px);
@@ -766,7 +776,7 @@ ul {
         }
         &__content{
             @include setFlex(column, flex-start, space-between flex-start);
-            @include setDimensions(100%, auto, 480px);
+            @include setDimensions(100%, auto, 576px);
         }
         &__phone{
             @include setFlex(row, $align-items: center);
@@ -795,7 +805,7 @@ ul {
         }
         &__contactForm{
             @include setFlex(column, $align-items: stretch);
-            @include setDimensions(100%, auto, 480px);
+            @include setDimensions(100%, auto, 576px);
             padding: 0;
         }
         &__email{
@@ -824,12 +834,12 @@ ul {
         }
     }
     .cart{
-        max-width: 480px;
+        max-width: 576px;
         &__title{
             @include setFont("Segoe UI", 22px, 700, 0px);
         }
         &__contener{
-            @include setDimensions(100%, auto, 480px);
+            @include setDimensions(100%, auto, 576px);
         }
         &__singleItem{
             display: grid;
@@ -874,7 +884,13 @@ ul {
     }
 }
 
-@media screen and (min-width: 480px) and (max-width: 992px) {
+@media screen and (min-width: 577px) and (max-width: 992px) {
+    *{
+        ::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+    }
     .page{
         max-width: convertPxToRem(992);
     }
@@ -913,13 +929,16 @@ ul {
         }
     }
     .about{
+        scroll-margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__photo{
+            @include setDimensions(100%, auto, 100%, 320px);
+        }
         &__info{
             width: 100%;
             padding: 30px 40px 20px 40px;
-            border-radius: $border-radius;
-            color: $primary-color;
-            transition: background-color 0.3s ease; 
-            background-color: transparent;
         }
         &__info--expanded {
             @include setFont("Segoe UI", 16px, 500);
@@ -930,9 +949,17 @@ ul {
         }
         &__text--wrap{
             background: linear-gradient(transparent, rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9), transparent);
-            padding: 10px 0;
+            padding: 20px 0;
             margin:0;
             @include setFont("Segoe UI", 16px, 500);
+        }
+        &__text--long{
+            height: auto;
+            margin: 20px;
+            @include setFont("Segoe UI", 14px, 500);
+            span{
+                display: none; 
+            } 
         }
         &__collapsed--wrap {
             padding: 0;
@@ -1027,4 +1054,4 @@ ul {
             max-height: 180px;
         }
     }
-}
+};

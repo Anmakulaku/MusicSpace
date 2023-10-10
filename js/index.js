@@ -45,22 +45,25 @@ const button = document.querySelector('.button__about');
 const textWrap = document.querySelector('.about__text--wrap');
 const textLong = document.querySelector('.about__text--long');
 const aboutInfo = document.querySelector('.about__info');
+const aboutTitle = document.querySelector('.about__title');
 
 document.addEventListener('DOMContentLoaded', function() {
         if (button && textWrap && textLong && aboutInfo) {
-                const isMobile = window.innerWidth <= 480; 
+                const isMobile = window.innerWidth <= 992; 
 
                 button.addEventListener('click', function() {
                         if (isMobile) {
                                 if (textLong.style.display === 'none' || textLong.style.display === '') {
                                         textLong.style.display = 'block';
                                         textWrap.style.display = 'none';
-                                        // aboutInfo.classList.add('about__info--expanded');
+                                        aboutTitle.style.display = 'none';
+                                        aboutInfo.classList.add('about__info--expanded');
                                         button.textContent = 'MNIEJ';
                                 } else {
                                         textLong.style.display = 'none';
                                         textWrap.style.display = 'block';
-                                        // aboutInfo.classList.remove('about__info--expanded');
+                                        aboutTitle.style.display = 'block';
+                                        aboutInfo.classList.remove('about__info--expanded');
                                         button.textContent = 'WIĘCEJ';
                                 }
                         } else {
@@ -73,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         textWrap.classList.add('about__collapsed--wrap');
                                         textLong.classList.add('about__collapsed--long');
                                         aboutInfo.classList.add('about__info--expanded');
+                                        aboutTitle.style.display = 'block';
                                         button.textContent = 'MNIEJ';
                                 }
                         }

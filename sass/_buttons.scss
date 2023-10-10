@@ -101,7 +101,7 @@
     align-items: center;
     cursor: pointer;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
     .button__secondary {
         &--large{
             @include setDimensions(200px, 40px, 300px);
@@ -109,21 +109,23 @@
         }
     }
     .button__primary{
-        border-radius: $border-radius 0 0 0;
+        border-radius: $border-radius $border-radius 0 0;
         @include setDimensions(90px, 30px, 200px);
+        @include setFont("Segoe UI", 14px, 700);
             &:hover{
                 background-color: $bg-color;
                 color: $primary-color;
             } 
             &--italic{
                 bottom: 0px;
-                right: 0px;
+                right: 50%;
+                transform: translateX(50%);
             }
         
     }
 }
 
-@media screen and (min-width: 480px) and (max-width: 768px) {
+@media screen and (min-width: 577px) and (max-width: 768px) {
     .button__primary{
         &--italic{
             bottom: 40px;
