@@ -91,6 +91,20 @@ document.addEventListener('DOMContentLoaded', function () {
             // Ustaw licznik produktu
             counter.textContent = product.quantity;
 
+            // Funkcja do aktualizacji sumy cen w koszyku
+            function updateCartTotal() {
+                const cartTotalElement = document.querySelector('.cart__summaryPrice');
+                const total = calculateCartTotal();
+
+                // Aktualizuj tekst w elemencie .cart__summaryPrice z obliczoną sumą
+                cartTotalElement.textContent = total + ' zł';
+
+                if (cart.length === 0) {
+                    // Jeśli koszyk jest pusty, ustaw kwotę na 0 zł
+                    cartTotalElement.textContent = ' 0 zł';
+                }
+            }
+
             // Dodaj obsługę przycisku "Usuń"
             const btnRemove = productClone.querySelector('.btn-remove');
             btnRemove.addEventListener('click', () => {
@@ -102,7 +116,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // updateCartItemCount();
                 // Aktualizuj wyświetlanie koszyka
                 displayCart();
-                
+                // Aktualizuj sumę cen
+                updateCartTotal();
             });
 
             // Dodaj element produktu do koszyka

@@ -585,17 +585,15 @@ ul {
         border-radius: $border-radius;
     }
     &__summaryTitle{
-        @include setFont("Segoe UI", 24px, 500, 0px);
-        @include setDimensions(20%, auto);
+        @include setFont("Segoe UI", 22px, 500, 0px);
+        // @include setDimensions(20%, auto);
         object-fit: cover;
         margin: 10px;
     }
     &__summaryPrice{
-        @include setFont("Segoe UI", 30px, 700, 0px);
+        @include setFont("Segoe UI", 20px, 700, 0px);
             object-fit: cover;
-            margin: 10px;
-            text-align: center;
-            font-size: larger;
+            margin: 10px 0;
     }
 }
 
