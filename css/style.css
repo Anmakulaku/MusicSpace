@@ -207,7 +207,7 @@ ul {
   max-height: none;
   display: block;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 20px;
 }
 .banner__titles {
@@ -571,6 +571,7 @@ ul {
   height: 260px;
   margin: 0 auto;
   max-height: 90%;
+  border-radius: 10px;
 }
 .shop .product-name {
   margin: 10px 0;

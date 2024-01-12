@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/main/js/products.json')
+fetch('https://raw.githubusercontent.com/Anmakulaku/MusicSpace/main/js/products.json?token=GHSAT0AAAAAACG4RVDXSA5NNBSBC3MXQH5YZNBCTMA')
         .then(response => response.json())
         .then(data => {
                 const products = data.products;
